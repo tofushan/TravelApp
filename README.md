@@ -28,3 +28,6 @@ Given App Description: App that lets you track your world travels - maybe colors
     <li>Deploying an app to the App Store.</li>
 <h2>--</h2>
 <p><b>***I imagine this app being a sort of shared travel log where friends can interact each others travels and travel notes.***</b><p>
+
+
+
