@@ -2,7 +2,7 @@
 Given App Description: App that lets you track your world travels - maybe colors countries respectively if you've visitied, want to visit next, havent visited - allows you and your friends to share map. 
 <h2>--</h2>
 <h2>Potential Features:</h2>
-    <li>Automatic detection of when the user enters a new country.<br /></li>
+    <li>Automatic detection of when the user enters a new country (Maybe notified by NotificationCenter).<br /></li>
     <li>Color coding based on visited vs wanting to visit.<br /></li>
     <li>Color coding based on the year/month visited.<br /></li>
     <li>Attaching notes to different countries so that when you click on it you can view them.<br /></li>
@@ -20,12 +20,12 @@ Given App Description: App that lets you track your world travels - maybe colors
     <li>I imagine this whole thing being on tab of a tab bar controller. Other tabs might include a friends list (table view of you friends to click into), my profile tab and maybe something like a notfications tab where you can see your friends interactions with you map. Lastly, a tab where you can see a list view of the countries with filters and search as well for a more manageable view of the countries.</li>
 <h2>--</h2>
 <h2>Project Goals:</h2>
-    <li>Getting mapkit up and running.<br /></li>
-    <li>Searching countries and isolating them.<br /></li>
-    <li>Color coding and categorizing countries.<br /></li>
-    <li>Highlighting cities and leaving notes once you've colored a country.<br /></li>
-    <li>Get a working friends list viewable from one device to another.<br /></li>
-    <li>Creating interactions between friends.<br /></li>
-    <li>Deploying an app to the App Store.<br /></li>
+    <li>1. Getting mapkit up and running.<br /></li>
+    <li>2. Searching countries and isolating them.<br /></li>
+    <li>3. Color coding and categorizing countries.<br /></li>
+    <li>4. Highlighting cities and leaving notes once you've colored a country.<br /></li>
+    <li>5. Get a working friends list viewable from one device to another.<br /></li>
+    <li>6. Creating interactions between friends.<br /></li>
+    <li>7. Deploying an app to the App Store.<br /></li>
 <h2>--</h2>
 <p><b>***I imagine this app being a sort of shared travel log where friends can interact each others travels and travel notes.***</b><p>
