@@ -14,7 +14,8 @@ Given App Description: App that lets you track your world travels - maybe colors
 <h2>High Level Architecture:</h2>
     <li>Loading screen with app logo and name.</li>
     <li>Fully zoomed out map, with coloring (maybe we can have a toggle at the top that lets you select which coloring mode you are in whether that be visited/not visited or based on the year visited)</li>
-    <li>Zoom in to different regions and see details like the cities you vistied and being able to click into the notes you left. Also would be able to enter some sort of editing mode where you can search or click a country to highlight and change the color of. Searching a country would isolate it.</li>
+    <li>Users can switch between the map view or a table view of countries to their preference.</li>
+    <li>Zoom in to different regions (or select the country in the table view) and see details like the cities you vistied and being able to click into the notes you left. Also would be able to enter some sort of editing mode where you can search or click a country to highlight and change the color of. Searching a country would isolate it.</li>
     <li>I imagine this whole thing being on tab of a tab bar controller. Other tabs might include a friends list (table view of you friends to click into), my profile tab and maybe something like a notfications tab where you can see your friends interactions with you map. Lastly, a tab where you can see a list view of the countries with filters and search as well for a more manageable view of the countries.</li>
 <h2>--</h2>
 <h2>Project Goals:</h2>
