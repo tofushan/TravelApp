@@ -13,10 +13,12 @@ class LoginVC: UIViewController {
 
     
     @IBOutlet weak var inputEmail: UITextField!
-    
     @IBOutlet weak var inputPassword: UITextField!
+    var emailPlaceholder = NSAttributedString(string: "netid@duke.edu", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+    var passwordPlaceholder = NSAttributedString(string: "*********", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
     
     @IBOutlet weak var errors: UILabel!
+    
     @IBAction func actionLogin(_ sender: Any) {
         if inputEmail.text == "" || inputPassword.text == "" {
             errors.text = "Please enter your email and password"
@@ -46,6 +48,8 @@ class LoginVC: UIViewController {
         // setup the background color
         self.view.backgroundColor = UIColor.init(hue: 0.1, saturation: 0.4, brightness: 1.0, alpha: 1.0)
         // initialize error message
+        inputEmail.attributedPlaceholder = emailPlaceholder
+        inputPassword.attributedPlaceholder = passwordPlaceholder
         errors.text = ""
         
     }
