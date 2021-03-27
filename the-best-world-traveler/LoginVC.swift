@@ -2,7 +2,7 @@
 //  LoginVC.swift
 //  the-best-world-traveler
 //
-//  Created by 劉軒甫 on 3/27/21.
+//  Created by Hsuan Fu Liu on 3/27/21.
 //
 
 import UIKit
