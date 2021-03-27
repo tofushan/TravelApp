@@ -14,16 +14,17 @@ class LoginVC: UIViewController {
     
     @IBOutlet weak var inputEmail: UITextField!
     @IBOutlet weak var inputPassword: UITextField!
-    var emailPlaceholder = NSAttributedString(string: "netid@duke.edu", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
-    var passwordPlaceholder = NSAttributedString(string: "*********", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+    // these are the paceholders shown in the textfields for guidence
+    var emailPlaceholder = NSAttributedString(string: "test@duke.edu", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+    var passwordPlaceholder = NSAttributedString(string: "testapp", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
     
     @IBOutlet weak var errors: UILabel!
     
     @IBAction func actionLogin(_ sender: Any) {
+        // if either email or password is empty, ask for entering
         if inputEmail.text == "" || inputPassword.text == "" {
             errors.text = "Please enter your email and password"
         }
-        
         else {
             // send the inputs to firebase user database
             Auth.auth().signIn(withEmail: self.inputEmail.text!, password: self.inputPassword.text!) { (user, error) in
@@ -47,7 +48,7 @@ class LoginVC: UIViewController {
         
         // setup the background color
         self.view.backgroundColor = UIColor.init(hue: 0.1, saturation: 0.4, brightness: 1.0, alpha: 1.0)
-        // initialize error message
+        // initialize placeholders and error message
         inputEmail.attributedPlaceholder = emailPlaceholder
         inputPassword.attributedPlaceholder = passwordPlaceholder
         errors.text = ""

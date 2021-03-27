@@ -65,12 +65,21 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJ6-hN-e6N">
-                                <rect key="frame" x="171" y="629" width="72" height="32"/>
+                                <rect key="frame" x="171" y="563" width="72" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="17"/>
                                 <state key="normal" title="Log in "/>
                                 <connections>
                                     <action selector="actionLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QV4-xf-Oaa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qP9-3c-1CS">
+                                <rect key="frame" x="164" y="603" width="72" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="17"/>
+                                <state key="normal" title="Sign up"/>
+                                <connections>
+                                    <segue destination="6s1-hd-7v2" kind="show" id="thn-Zm-tui"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error_messages" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JmH-g2-dWl">
@@ -112,6 +121,110 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-639" y="40"/>
+        </scene>
+        <!--SignupVC-->
+        <scene sceneID="sUq-xa-gBN">
+            <objects>
+                <viewController id="6s1-hd-7v2" customClass="SignupVC" customModule="the_best_world_traveler" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="42o-oP-pkw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New User " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8b9-EB-53i">
+                                <rect key="frame" x="37.5" y="300.5" width="339" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="1gr-jQ-Nks"/>
+                                    <constraint firstAttribute="width" constant="339" id="7o5-Te-060"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzJ-O0-YHs">
+                                <rect key="frame" x="67" y="388" width="66" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="66" id="YcH-XY-NyN"/>
+                                    <constraint firstAttribute="height" constant="21" id="waQ-bL-Es7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdX-Yd-AYA">
+                                <rect key="frame" x="46" y="435" width="87" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Orn-9T-W9A"/>
+                                    <constraint firstAttribute="width" constant="87" id="tOx-vg-3Ct"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Xf-jj-oxk">
+                                <rect key="frame" x="151" y="381" width="218" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="1Fi-Zd-Ld5"/>
+                                    <constraint firstAttribute="width" constant="218" id="6uy-uL-MWh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dwf-KB-3rK">
+                                <rect key="frame" x="151" y="428" width="218" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="218" id="RrU-bT-Yea"/>
+                                    <constraint firstAttribute="height" constant="34" id="Wl6-sc-dAt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Auc-7D-ibo">
+                                <rect key="frame" x="120" y="524" width="174" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="17"/>
+                                <state key="normal" title="Create an account"/>
+                                <connections>
+                                    <action selector="actionSignup:" destination="6s1-hd-7v2" eventType="touchUpInside" id="atw-jV-5eW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error_messages" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65N-fX-LQQ">
+                                <rect key="frame" x="22" y="478" width="371" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="371" id="1tJ-jq-OLF"/>
+                                    <constraint firstAttribute="height" constant="20" id="r7U-dr-Qbn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="10"/>
+                                <color key="textColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NCO-cS-oD7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VdX-Yd-AYA" firstAttribute="top" secondItem="8b9-EB-53i" secondAttribute="bottom" constant="93.5" id="0wA-bP-P7g"/>
+                            <constraint firstItem="dwf-KB-3rK" firstAttribute="top" secondItem="8b9-EB-53i" secondAttribute="bottom" constant="86.5" id="1l6-F3-KXT"/>
+                            <constraint firstItem="8b9-EB-53i" firstAttribute="centerY" secondItem="42o-oP-pkw" secondAttribute="centerY" constant="-100" id="4uH-Gx-9xb"/>
+                            <constraint firstItem="zzJ-O0-YHs" firstAttribute="top" secondItem="8b9-EB-53i" secondAttribute="bottom" constant="46.5" id="TE3-r0-uNo"/>
+                            <constraint firstItem="dwf-KB-3rK" firstAttribute="leading" secondItem="NCO-cS-oD7" secondAttribute="leading" constant="151" id="Vab-IF-oDx"/>
+                            <constraint firstItem="65N-fX-LQQ" firstAttribute="leading" secondItem="NCO-cS-oD7" secondAttribute="leading" constant="22" id="eXH-Yv-Ta9"/>
+                            <constraint firstItem="8b9-EB-53i" firstAttribute="centerX" secondItem="42o-oP-pkw" secondAttribute="centerX" id="l9L-zA-pfl"/>
+                            <constraint firstItem="zzJ-O0-YHs" firstAttribute="leading" secondItem="NCO-cS-oD7" secondAttribute="leading" constant="67" id="sau-25-LGM"/>
+                            <constraint firstItem="65N-fX-LQQ" firstAttribute="top" secondItem="8b9-EB-53i" secondAttribute="bottom" constant="136.5" id="sw8-en-LYt"/>
+                            <constraint firstItem="1Xf-jj-oxk" firstAttribute="top" secondItem="8b9-EB-53i" secondAttribute="bottom" constant="39.5" id="ues-55-PDz"/>
+                            <constraint firstItem="VdX-Yd-AYA" firstAttribute="leading" secondItem="NCO-cS-oD7" secondAttribute="leading" constant="46" id="uox-RF-AdT"/>
+                            <constraint firstItem="1Xf-jj-oxk" firstAttribute="leading" secondItem="NCO-cS-oD7" secondAttribute="leading" constant="151" id="zH1-FN-B5v"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="tYs-t7-gHL"/>
+                    <connections>
+                        <outlet property="errors" destination="65N-fX-LQQ" id="RCc-6i-aCn"/>
+                        <outlet property="signupEmail" destination="1Xf-jj-oxk" id="6fS-KQ-yzO"/>
+                        <outlet property="signupPassword" destination="dwf-KB-3rK" id="xDA-83-zyY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9sB-KU-xLF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-639.13043478260875" y="776.78571428571422"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="o3M-bP-wJl">
