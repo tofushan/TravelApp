@@ -7,4 +7,6 @@ target 'the-best-world-traveler' do
     
   # Pods for the-best-world-traveler
   pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
 end

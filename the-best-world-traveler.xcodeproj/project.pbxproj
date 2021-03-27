@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		8BD84D29260D2DB6002EBBFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BD84D28260D2DB6002EBBFE /* Assets.xcassets */; };
 		8BD84D2C260D2DB6002EBBFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD84D2A260D2DB6002EBBFE /* LaunchScreen.storyboard */; };
 		8BD84D4A260D30D2002EBBFE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BD84D49260D30D2002EBBFE /* GoogleService-Info.plist */; };
+		8BF98DEE260F76540067F5C3 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF98DED260F76540067F5C3 /* LoginVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		8BD84D2D260D2DB6002EBBFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BD84D48260D30B6002EBBFE /* the-best-world-traveler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "the-best-world-traveler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BD84D49260D30D2002EBBFE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8BF98DED260F76540067F5C3 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		BB9F6DB7A3D4224A1DC66CB8 /* Pods-the-best-world-traveler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-the-best-world-traveler.release.xcconfig"; path = "Target Support Files/Pods-the-best-world-traveler/Pods-the-best-world-traveler.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -52,7 +54,6 @@
 				268562C670F6AB6C14121E0D /* Pods-the-best-world-traveler.debug.xcconfig */,
 				BB9F6DB7A3D4224A1DC66CB8 /* Pods-the-best-world-traveler.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -73,6 +74,7 @@
 				8BD84D1E260D2DB4002EBBFE /* SceneDelegate.swift */,
 				8BD84D20260D2DB4002EBBFE /* ViewController.swift */,
 				8BD84D22260D2DB5002EBBFE /* Main.storyboard */,
+				8BF98DED260F76540067F5C3 /* LoginVC.swift */,
 				8BD84D28260D2DB6002EBBFE /* Assets.xcassets */,
 				8BD84D2A260D2DB6002EBBFE /* LaunchScreen.storyboard */,
 				8BD84D2D260D2DB6002EBBFE /* Info.plist */,
@@ -209,6 +211,7 @@
 				8BD84D27260D2DB5002EBBFE /* the_best_world_traveler.xcdatamodeld in Sources */,
 				8BD84D1D260D2DB4002EBBFE /* AppDelegate.swift in Sources */,
 				8BD84D1F260D2DB4002EBBFE /* SceneDelegate.swift in Sources */,
+				8BF98DEE260F76540067F5C3 /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

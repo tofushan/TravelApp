@@ -1,24 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginVC" customModule="the_best_world_traveler" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Best World Traveler" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ir5-1k-s5q">
+                                <rect key="frame" x="43" y="232.5" width="328" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="328" id="PGo-Bj-Quj"/>
+                                    <constraint firstAttribute="height" constant="31" id="cXe-1r-Ira"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCV-7P-Por">
+                                <rect key="frame" x="67" y="387" width="66" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="4in-hN-PjK"/>
+                                    <constraint firstAttribute="width" constant="66" id="Mgo-9f-1fs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Qk-29-2a9">
+                                <rect key="frame" x="46" y="434" width="87" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="8lW-fv-zSh"/>
+                                    <constraint firstAttribute="width" constant="87" id="ayL-F9-neq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xo3-Rg-2xQ">
+                                <rect key="frame" x="151" y="380" width="218" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="u6H-qg-xZq"/>
+                                    <constraint firstAttribute="width" constant="218" id="zxY-ms-q9I"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1dM-X0-qJ0">
+                                <rect key="frame" x="151" y="427" width="218" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="218" id="TlW-cj-xUI"/>
+                                    <constraint firstAttribute="height" constant="34" id="myc-T2-NIW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJ6-hN-e6N">
+                                <rect key="frame" x="171" y="629" width="72" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="17"/>
+                                <state key="normal" title="Log in "/>
+                                <connections>
+                                    <action selector="actionLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QV4-xf-Oaa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error_messages" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JmH-g2-dWl">
+                                <rect key="frame" x="20" y="480" width="371" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="axR-dh-s9p"/>
+                                    <constraint firstAttribute="width" constant="371" id="dp9-tq-8ef"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
+                                <color key="textColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ir5-1k-s5q" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-200" id="0FE-kd-OFc"/>
+                            <constraint firstItem="5Qk-29-2a9" firstAttribute="top" secondItem="KCV-7P-Por" secondAttribute="bottom" constant="26" id="5eo-RH-xli"/>
+                            <constraint firstItem="KCV-7P-Por" firstAttribute="top" secondItem="ir5-1k-s5q" secondAttribute="bottom" constant="123.5" id="70x-fn-DtW"/>
+                            <constraint firstItem="JmH-g2-dWl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="8b3-bd-6xN"/>
+                            <constraint firstItem="5Qk-29-2a9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46" id="DeK-M6-i5H"/>
+                            <constraint firstItem="JmH-g2-dWl" firstAttribute="top" secondItem="1dM-X0-qJ0" secondAttribute="bottom" constant="19" id="GoD-it-IJ3"/>
+                            <constraint firstItem="1dM-X0-qJ0" firstAttribute="top" secondItem="ir5-1k-s5q" secondAttribute="bottom" constant="163.5" id="NgE-Nz-8Bh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xo3-Rg-2xQ" secondAttribute="bottom" constant="448" id="P20-FE-tGr"/>
+                            <constraint firstItem="KCV-7P-Por" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="gie-kc-EB4"/>
+                            <constraint firstItem="Xo3-Rg-2xQ" firstAttribute="leading" secondItem="KCV-7P-Por" secondAttribute="trailing" constant="18" id="hgs-rZ-buM"/>
+                            <constraint firstItem="Xo3-Rg-2xQ" firstAttribute="top" secondItem="ir5-1k-s5q" secondAttribute="bottom" constant="116.5" id="j7A-G2-VYh"/>
+                            <constraint firstItem="1dM-X0-qJ0" firstAttribute="leading" secondItem="5Qk-29-2a9" secondAttribute="trailing" constant="18" id="srW-cN-kaT"/>
+                            <constraint firstItem="ir5-1k-s5q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wtL-RS-q3g"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="errors" destination="JmH-g2-dWl" id="Mql-6M-fqd"/>
+                        <outlet property="inputEmail" destination="Xo3-Rg-2xQ" id="Mmx-BJ-Hrh"/>
+                        <outlet property="inputPassword" destination="1dM-X0-qJ0" id="6Yd-1a-w20"/>
+                        <segue destination="3a5-ns-6UW" kind="show" identifier="homeSegue" id="i69-tZ-yWm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-413" y="40"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="o3M-bP-wJl">
+            <objects>
+                <viewController id="3a5-ns-6UW" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="La5-e2-EEN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ht2-Db-vDu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DOh-s9-bix"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e33-yn-51y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="416" y="40"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
