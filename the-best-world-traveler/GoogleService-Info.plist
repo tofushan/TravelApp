@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>434708252148-op105svgech9mrrqg00ialbond33hiu2.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.434708252148-op105svgech9mrrqg00ialbond33hiu2</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA-D_bJkqt9iM3jKXw7UDDHPmUXL4hvRUE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>434708252148</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>edu.duke.cs207.the-best-world-traveler</string>
+	<key>PROJECT_ID</key>
+	<string>the-best-world-traveler</string>
+	<key>STORAGE_BUCKET</key>
+	<string>the-best-world-traveler.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:434708252148:ios:b429ab21e0550b3e3ea5a1</string>
+</dict>
+</plist>
