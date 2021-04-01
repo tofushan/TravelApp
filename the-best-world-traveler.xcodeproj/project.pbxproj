@@ -10,6 +10,7 @@
 		1400CB912613B998008AE8B0 /* tabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1400CB902613B998008AE8B0 /* tabBarViewController.swift */; };
 		1449764F2613C2F300034321 /* searchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1449764E2613C2F300034321 /* searchBarViewController.swift */; };
 		144976592613C5BE00034321 /* addCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144976582613C5BE00034321 /* addCountryViewController.swift */; };
+		1E9DCDFD261583600047F7AA /* locationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9DCDFC261583560047F7AA /* locationTableViewController.swift */; };
 		5CDA5607FCF3EDF6FE6C7A43 /* Pods_the_best_world_traveler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E53FC854E7A5AF85C6C73D2 /* Pods_the_best_world_traveler.framework */; };
 		8BD84D1D260D2DB4002EBBFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD84D1C260D2DB4002EBBFE /* AppDelegate.swift */; };
 		8BD84D1F260D2DB4002EBBFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD84D1E260D2DB4002EBBFE /* SceneDelegate.swift */; };
@@ -28,6 +29,7 @@
 		1449764E2613C2F300034321 /* searchBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchBarViewController.swift; sourceTree = "<group>"; };
 		144976582613C5BE00034321 /* addCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addCountryViewController.swift; sourceTree = "<group>"; };
 		1E53FC854E7A5AF85C6C73D2 /* Pods_the_best_world_traveler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_the_best_world_traveler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E9DCDFC261583560047F7AA /* locationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = locationTableViewController.swift; sourceTree = "<group>"; };
 		268562C670F6AB6C14121E0D /* Pods-the-best-world-traveler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-the-best-world-traveler.debug.xcconfig"; path = "Target Support Files/Pods-the-best-world-traveler/Pods-the-best-world-traveler.debug.xcconfig"; sourceTree = "<group>"; };
 		8BD84D1C260D2DB4002EBBFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BD84D1E260D2DB4002EBBFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				8BD84D22260D2DB5002EBBFE /* Main.storyboard */,
 				8BF98DF0260F8EF00067F5C3 /* SignupVC.swift */,
 				8BF98DED260F76540067F5C3 /* LoginVC.swift */,
+				1E9DCDFC261583560047F7AA /* locationTableViewController.swift */,
 				8BD84D28260D2DB6002EBBFE /* Assets.xcassets */,
 				8BD84D2A260D2DB6002EBBFE /* LaunchScreen.storyboard */,
 				8BD84D2D260D2DB6002EBBFE /* Info.plist */,
@@ -223,6 +226,7 @@
 				8BD84D21260D2DB4002EBBFE /* ViewController.swift in Sources */,
 				1449764F2613C2F300034321 /* searchBarViewController.swift in Sources */,
 				144976592613C5BE00034321 /* addCountryViewController.swift in Sources */,
+				1E9DCDFD261583600047F7AA /* locationTableViewController.swift in Sources */,
 				8BD84D27260D2DB5002EBBFE /* the_best_world_traveler.xcdatamodeld in Sources */,
 				1400CB912613B998008AE8B0 /* tabBarViewController.swift in Sources */,
 				8BD84D1D260D2DB4002EBBFE /* AppDelegate.swift in Sources */,

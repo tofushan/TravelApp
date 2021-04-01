@@ -14,6 +14,8 @@ import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
+    var locationSearchController:UISearchController? = nil
+    
     @IBOutlet weak var mapView: MKMapView!
     
     var locationManager = CLLocationManager()
@@ -25,6 +27,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         // Do any additional setup after loading the view.
         
         locationManager.requestWhenInUseAuthorization()
+        
+        let locationTableViewController = storyboard!.instantiateViewController(withIdentifier: "locationTableViewController") as! locationTableViewController
+        locationSearchController = UISearchController(searchResultsController: locationTableViewController)
+        locationSearchController?.searchResultsUpdater = locationTableViewController
+    
+        let searchBar = locationSearchController!.searchBar
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Search"
+        navigationItem.titleView = locationSearchController?.searchBar
+        
+        locationSearchController?.hidesNavigationBarDuringPresentation = false
+        definesPresentationContext = true
+        
+        locationTableViewController.mapView = mapView
+    
     }
 
     
