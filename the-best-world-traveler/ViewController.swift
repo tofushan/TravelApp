@@ -10,7 +10,7 @@ import MapKit
 import CoreLocation
 
 protocol HandleMapSearch {
-    func dropPinZoomIn(placemark:MKPlacemark)
+    func dropPin(placemark:MKPlacemark)
 }
 
 
@@ -84,7 +84,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 }
 
 extension ViewController: HandleMapSearch {
-    func dropPinZoomIn(placemark:MKPlacemark){
+    func dropPin(placemark:MKPlacemark){
         // cache the pin
         selectedPin = placemark
         // clear existing pins
@@ -92,9 +92,9 @@ extension ViewController: HandleMapSearch {
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate
         annotation.title = placemark.name
-        if let city = placemark.locality,
-        let state = placemark.administrativeArea {
-            annotation.subtitle = "\(city) \(state)"
+        if let locality = placemark.locality,
+        let area = placemark.administrativeArea {
+            annotation.subtitle = "\(locality) \(area)"
         }
         mapView.addAnnotation(annotation)
         let span = MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)

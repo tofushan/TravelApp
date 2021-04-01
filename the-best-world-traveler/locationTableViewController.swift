@@ -8,11 +8,13 @@
 import UIKit
 import MapKit
 
+
 class locationTableViewController: UITableViewController {
 
+    var handleMapSearchDelegate:HandleMapSearch? = nil
+    
     var searchResults:[MKMapItem] = []
     var mapView: MKMapView? = nil
-    var handleMapSearchDelegate:HandleMapSearch? = nil
 
     
     
@@ -25,15 +27,16 @@ class locationTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+ 
 
     // MARK: - Table view data source
 
-    /*
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
- */
+ 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -75,7 +78,7 @@ class locationTableViewController: UITableViewController {
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        
     }
     */
 
@@ -96,6 +99,7 @@ class locationTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
 
     
     func parseAddress(selectedItem:MKPlacemark) -> String {
@@ -124,6 +128,7 @@ class locationTableViewController: UITableViewController {
 }
 
 extension locationTableViewController : UISearchResultsUpdating {
+    //func updateSearchResultsForSearchController(searchController: UISearchController) {
     func updateSearchResults(for searchController: UISearchController) {
         //guard let mapView = mapView
         guard let searchBarText = searchController.searchBar.text else { return }
@@ -141,10 +146,11 @@ extension locationTableViewController : UISearchResultsUpdating {
     }
 }
 
+
 extension locationTableViewController {
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAt indexPath: NSIndexPath) {
         let selectedItem = searchResults[indexPath.row].placemark
-        handleMapSearchDelegate?.dropPinZoomIn(placemark: selectedItem)
+        handleMapSearchDelegate?.dropPin(placemark: selectedItem)
         dismiss(animated: true, completion: nil)
     }
 }
