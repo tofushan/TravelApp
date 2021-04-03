@@ -246,7 +246,7 @@
         <!--Add-->
         <scene sceneID="mbd-cy-n8n">
             <objects>
-                <tableViewController id="Ghd-vd-Kmc" sceneMemberID="viewController">
+                <tableViewController id="Ghd-vd-Kmc" customClass="CountriesTableVCTableViewController" customModule="the_best_world_traveler" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4Ee-Oz-kdb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
