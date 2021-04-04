@@ -7,14 +7,20 @@
 
 import UIKit
 
-class CountriesTableVCTableViewController: UITableViewController {
+class CountriesTableVCTableViewController: UITableViewController, UISearchBarDelegate {
     
     
     // get all the countries in Swift
     let countries : [ String ] = Locale.isoRegionCodes.compactMap { Locale.current.localizedString(forRegionCode: $0) }
+    var filteredData: [String]!
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.delegate = self
+        filteredData = countries
         // print(countryList)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -42,7 +48,7 @@ class CountriesTableVCTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return countries.count
+        return filteredData.count
     }
 
     
@@ -50,10 +56,10 @@ class CountriesTableVCTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "countryCell", for: indexPath)
 
         let locale = Locale(identifier: "en_US")
-        let countryCode = locale.countryCode(by: countries[indexPath.row])
+        let countryCode = locale.countryCode(by: filteredData[indexPath.row])
         
         // in table cell, country flag + name
-        cell.textLabel?.text = getFlag(from: countryCode ?? "US") + " " + String( countries[indexPath.row] )
+        cell.textLabel?.text = getFlag(from: countryCode ?? "US") + " " + String( filteredData[indexPath.row] )
 
         return cell
     }
@@ -103,7 +109,19 @@ class CountriesTableVCTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            // When there is no text, filteredData is the same as the original data
+            // When user has entered text into the search box
+            // Use the filter method to iterate over all items in the data array
+            // For each item, return true if the item should be included and false if the
+            // item should NOT be included
+            filteredData = searchText.isEmpty ? countries : countries.filter { (item: String) -> Bool in
+                // If dataItem matches the searchText, return true to include it
+                return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+            }
+            
+            tableView.reloadData()
+        }
 }
 
 // to get country code from country name
