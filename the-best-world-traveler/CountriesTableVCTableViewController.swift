@@ -22,7 +22,17 @@ class CountriesTableVCTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    // to get country flag emoji from country code
+    internal func getFlag(from countryCode: String) -> String {
 
+        return countryCode
+            .unicodeScalars
+            .map({ 127397 + $0.value })
+            .compactMap(UnicodeScalar.init)
+            .map(String.init)
+            .joined()
+    }
     
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -39,10 +49,11 @@ class CountriesTableVCTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "countryCell", for: indexPath)
 
-        // Configure the cell...
-        cell.textLabel?.text = String( countries[indexPath.row] )
-        //cell.detailTextLabel?.text = countries[indexPath.row].currency_code
+        let locale = Locale(identifier: "en_US")
+        let countryCode = locale.countryCode(by: countries[indexPath.row])
         
+        // in table cell, country flag + name
+        cell.textLabel?.text = getFlag(from: countryCode ?? "US") + " " + String( countries[indexPath.row] )
 
         return cell
     }
@@ -93,4 +104,16 @@ class CountriesTableVCTableViewController: UITableViewController {
     }
     */
 
+}
+
+// to get country code from country name
+extension Locale {
+    func countryCode(by countryName: String) -> String? {
+        return Locale.isoRegionCodes.first(where: { code -> Bool in
+            guard let localizedCountryName = localizedString(forRegionCode: code) else {
+                return false
+            }
+            return localizedCountryName.lowercased() == countryName.lowercased()
+        })
+    }
 }
