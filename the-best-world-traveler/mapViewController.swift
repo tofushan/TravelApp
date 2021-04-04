@@ -10,6 +10,9 @@ import MapKit
 
 class mapViewController: UIViewController, UISearchBarDelegate {
     
+    // get all the countries in Swift
+    let countries : [ String ] = Locale.isoRegionCodes.compactMap { Locale.current.localizedString(forRegionCode: $0) }
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -34,7 +37,6 @@ class mapViewController: UIViewController, UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         dismiss(animated: true, completion: nil)
-        
         let searchRequest = MKLocalSearch.Request()
         searchRequest.naturalLanguageQuery = searchBar.text
         search(using: searchRequest)
@@ -52,12 +54,14 @@ class mapViewController: UIViewController, UISearchBarDelegate {
                     let location = item.placemark.location {
                         print("\(name): \(location.coordinate.latitude),\(location.coordinate.longitude)")
                         
+                        self.mapView.removeAnnotations(self.mapView.self.annotations)
+
+                    
                         let span = MKCoordinateSpan(latitudeDelta: 60, longitudeDelta: 60)
                         let region = MKCoordinateRegion(center: location.coordinate, span: span)
                         self.mapView.setRegion(region, animated: true)
                         
                         // clear existing pins
-                        self.mapView.removeAnnotations(self.mapView.self.annotations)
 
                         let annotation = MKPointAnnotation()
                         annotation.coordinate = location.coordinate
