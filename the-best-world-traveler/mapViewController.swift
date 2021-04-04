@@ -52,10 +52,15 @@ class mapViewController: UIViewController, UISearchBarDelegate {
                     let location = item.placemark.location {
                         print("\(name): \(location.coordinate.latitude),\(location.coordinate.longitude)")
                         
+                        self.mapView.removeAnnotations(self.mapView.self.annotations)
+
+                    
                         let span = MKCoordinateSpan(latitudeDelta: 60, longitudeDelta: 60)
                         let region = MKCoordinateRegion(center: location.coordinate, span: span)
                         self.mapView.setRegion(region, animated: true)
                         
+                        // clear existing pins
+
                         let annotation = MKPointAnnotation()
                         annotation.coordinate = location.coordinate
                         annotation.title = name
