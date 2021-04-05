@@ -102,13 +102,17 @@ class CountriesTableVCTableViewController: UITableViewController, UISearchBarDel
 
     /*
     // MARK: - Navigation
-
+    */
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let nav = segue.destination as! UINavigationController
+        let cvc = nav.topViewController as! addCountryViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow{
+            cvc.country = countries[indexPath.row]
+        }
     }
-    */
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
             // When there is no text, filteredData is the same as the original data
             // When user has entered text into the search box
