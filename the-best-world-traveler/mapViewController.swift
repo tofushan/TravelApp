@@ -80,6 +80,7 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
                         let annotation = MKPointAnnotation()
                         annotation.coordinate = location.coordinate
                         annotation.title = name
+                        annotation.subtitle = "I visited \(name) in 2020"
                         self.mapView.addAnnotation(annotation)
                     
                 }
@@ -88,7 +89,8 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "MyMarker")
+
+        var annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: annotation.title!!)
         let redValue = CGFloat.random(in: 0...1)
         let greenValue = CGFloat.random(in: 0...1)
         let blueValue = CGFloat.random(in: 0...1)
@@ -98,7 +100,21 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
         let countryCode = locale.countryCode(by: annotation.title!!)
         annotationView.glyphText = getFlag(from: countryCode ?? "US")
         
+        let btn = UIButton(type: .detailDisclosure)
+        annotationView.canShowCallout = true
+        annotationView.rightCalloutAccessoryView = btn
+        
         return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let annotation = view.annotation
+        let placeName = annotation?.title
+        let placeInfo = annotation?.subtitle
+
+        let ac = UIAlertController(title: placeName as! String, message: placeInfo as! String, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
     }
     
     private func displayAnnotations() {
