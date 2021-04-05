@@ -8,9 +8,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="91p-47-dab">
+            <objects>
+                <navigationController id="6pq-wd-vYU" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="28T-7p-a1T">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G5M-ik-gcZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2100" y="62"/>
+        </scene>
         <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="LoginVC" customModule="the_best_world_traveler" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -113,14 +127,14 @@
                             <constraint firstItem="ir5-1k-s5q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wtL-RS-q3g"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="jcp-XJ-v2E"/>
                     <connections>
                         <outlet property="errors" destination="JmH-g2-dWl" id="Mql-6M-fqd"/>
                         <outlet property="inputEmail" destination="Xo3-Rg-2xQ" id="Mmx-BJ-Hrh"/>
                         <outlet property="inputPassword" destination="1dM-X0-qJ0" id="6Yd-1a-w20"/>
-                        <segue destination="3Co-eY-vna" kind="presentation" identifier="homeSegue" animates="NO" id="C5I-30-GMq"/>
+                        <segue destination="3Co-eY-vna" kind="show" identifier="homeSegue" animates="NO" id="C5I-30-GMq"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-639" y="40"/>
         </scene>
