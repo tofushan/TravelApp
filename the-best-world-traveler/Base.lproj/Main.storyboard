@@ -8,6 +8,19 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="91p-47-dab">
+            <objects>
+                <navigationController id="6pq-wd-vYU" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="28T-7p-a1T">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G5M-ik-gcZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2100" y="62"/>
+        </scene>
         <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -103,19 +116,22 @@
                             <constraint firstItem="5Qk-29-2a9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46" id="DeK-M6-i5H"/>
                             <constraint firstItem="JmH-g2-dWl" firstAttribute="top" secondItem="1dM-X0-qJ0" secondAttribute="bottom" constant="19" id="GoD-it-IJ3"/>
                             <constraint firstItem="1dM-X0-qJ0" firstAttribute="top" secondItem="ir5-1k-s5q" secondAttribute="bottom" constant="163.5" id="NgE-Nz-8Bh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xo3-Rg-2xQ" secondAttribute="trailing" constant="45" id="R05-PT-Yaa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JmH-g2-dWl" secondAttribute="trailing" constant="23" id="dbh-Va-onj"/>
                             <constraint firstItem="KCV-7P-Por" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="gie-kc-EB4"/>
                             <constraint firstItem="Xo3-Rg-2xQ" firstAttribute="leading" secondItem="KCV-7P-Por" secondAttribute="trailing" constant="18" id="hgs-rZ-buM"/>
                             <constraint firstItem="Xo3-Rg-2xQ" firstAttribute="top" secondItem="ir5-1k-s5q" secondAttribute="bottom" constant="116.5" id="j7A-G2-VYh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1dM-X0-qJ0" secondAttribute="trailing" constant="45" id="o4e-h3-KSW"/>
                             <constraint firstItem="1dM-X0-qJ0" firstAttribute="leading" secondItem="5Qk-29-2a9" secondAttribute="trailing" constant="18" id="srW-cN-kaT"/>
                             <constraint firstItem="ir5-1k-s5q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wtL-RS-q3g"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="jcp-XJ-v2E"/>
                     <connections>
                         <outlet property="errors" destination="JmH-g2-dWl" id="Mql-6M-fqd"/>
                         <outlet property="inputEmail" destination="Xo3-Rg-2xQ" id="Mmx-BJ-Hrh"/>
                         <outlet property="inputPassword" destination="1dM-X0-qJ0" id="6Yd-1a-w20"/>
-                        <segue destination="3Co-eY-vna" kind="showDetail" identifier="homeSegue" animates="NO" id="C5I-30-GMq"/>
+                        <segue destination="3Co-eY-vna" kind="show" identifier="homeSegue" animates="NO" id="C5I-30-GMq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -160,6 +176,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9B-eT-RWG">
+                                <rect key="frame" x="46" y="485" width="87" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="87" id="Oaz-go-LDy"/>
+                                    <constraint firstAttribute="height" constant="21" id="sNd-TT-znW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Xf-jj-oxk">
                                 <rect key="frame" x="151" y="381" width="218" height="34"/>
                                 <constraints>
@@ -178,8 +204,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PE5-ZO-Qwv">
+                                <rect key="frame" x="151" y="478" width="218" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="218" id="ZzC-N4-Krz"/>
+                                    <constraint firstAttribute="height" constant="34" id="tdu-MY-Qcj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Auc-7D-ibo">
-                                <rect key="frame" x="120" y="524" width="174" height="32"/>
+                                <rect key="frame" x="120" y="550" width="174" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="17"/>
                                 <state key="normal" title="Create an account"/>
@@ -188,10 +223,9 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error_messages" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65N-fX-LQQ">
-                                <rect key="frame" x="22" y="478" width="371" height="20"/>
+                                <rect key="frame" x="22" y="530" width="371" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="371" id="1tJ-jq-OLF"/>
-                                    <constraint firstAttribute="height" constant="20" id="r7U-dr-Qbn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="10"/>
                                 <color key="textColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -204,22 +238,30 @@
                             <constraint firstItem="VdX-Yd-AYA" firstAttribute="top" secondItem="8b9-EB-53i" secondAttribute="bottom" constant="93.5" id="0wA-bP-P7g"/>
                             <constraint firstItem="dwf-KB-3rK" firstAttribute="top" secondItem="8b9-EB-53i" secondAttribute="bottom" constant="86.5" id="1l6-F3-KXT"/>
                             <constraint firstItem="8b9-EB-53i" firstAttribute="centerY" secondItem="42o-oP-pkw" secondAttribute="centerY" constant="-100" id="4uH-Gx-9xb"/>
-                            <constraint firstItem="NCO-cS-oD7" firstAttribute="trailing" secondItem="65N-fX-LQQ" secondAttribute="trailing" constant="21" id="Hrl-9W-L4c"/>
+                            <constraint firstItem="b9B-eT-RWG" firstAttribute="leading" secondItem="NCO-cS-oD7" secondAttribute="leading" constant="46" id="ByI-TZ-rxq"/>
+                            <constraint firstItem="NCO-cS-oD7" firstAttribute="trailing" secondItem="dwf-KB-3rK" secondAttribute="trailing" constant="45" id="Cr7-QN-NfO"/>
+                            <constraint firstItem="PE5-ZO-Qwv" firstAttribute="leading" secondItem="NCO-cS-oD7" secondAttribute="leading" constant="151" id="Gb0-cd-z8f"/>
+                            <constraint firstItem="NCO-cS-oD7" firstAttribute="trailing" secondItem="65N-fX-LQQ" secondAttribute="trailing" constant="21" id="PlH-SJ-zaB"/>
+                            <constraint firstItem="65N-fX-LQQ" firstAttribute="top" secondItem="8b9-EB-53i" secondAttribute="bottom" constant="188.5" id="Py5-cW-Gah"/>
                             <constraint firstItem="zzJ-O0-YHs" firstAttribute="top" secondItem="8b9-EB-53i" secondAttribute="bottom" constant="46.5" id="TE3-r0-uNo"/>
+                            <constraint firstItem="NCO-cS-oD7" firstAttribute="trailing" secondItem="1Xf-jj-oxk" secondAttribute="trailing" constant="45" id="Ubd-83-gJh"/>
                             <constraint firstItem="dwf-KB-3rK" firstAttribute="leading" secondItem="NCO-cS-oD7" secondAttribute="leading" constant="151" id="Vab-IF-oDx"/>
-                            <constraint firstItem="65N-fX-LQQ" firstAttribute="leading" secondItem="NCO-cS-oD7" secondAttribute="leading" constant="22" id="eXH-Yv-Ta9"/>
+                            <constraint firstItem="65N-fX-LQQ" firstAttribute="leading" secondItem="NCO-cS-oD7" secondAttribute="leading" constant="22" id="Z8I-iy-m9i"/>
+                            <constraint firstItem="NCO-cS-oD7" firstAttribute="trailing" secondItem="PE5-ZO-Qwv" secondAttribute="trailing" constant="45" id="ZK2-Xt-2df"/>
+                            <constraint firstItem="b9B-eT-RWG" firstAttribute="top" secondItem="8b9-EB-53i" secondAttribute="bottom" constant="143.5" id="bXG-eA-I1Y"/>
                             <constraint firstItem="8b9-EB-53i" firstAttribute="centerX" secondItem="42o-oP-pkw" secondAttribute="centerX" id="l9L-zA-pfl"/>
                             <constraint firstItem="zzJ-O0-YHs" firstAttribute="leading" secondItem="NCO-cS-oD7" secondAttribute="leading" constant="67" id="sau-25-LGM"/>
-                            <constraint firstItem="65N-fX-LQQ" firstAttribute="top" secondItem="8b9-EB-53i" secondAttribute="bottom" constant="136.5" id="sw8-en-LYt"/>
                             <constraint firstItem="1Xf-jj-oxk" firstAttribute="top" secondItem="8b9-EB-53i" secondAttribute="bottom" constant="39.5" id="ues-55-PDz"/>
                             <constraint firstItem="VdX-Yd-AYA" firstAttribute="leading" secondItem="NCO-cS-oD7" secondAttribute="leading" constant="46" id="uox-RF-AdT"/>
                             <constraint firstItem="1Xf-jj-oxk" firstAttribute="leading" secondItem="NCO-cS-oD7" secondAttribute="leading" constant="151" id="zH1-FN-B5v"/>
+                            <constraint firstItem="PE5-ZO-Qwv" firstAttribute="top" secondItem="dwf-KB-3rK" secondAttribute="bottom" constant="16" id="zrJ-aB-hv4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tYs-t7-gHL"/>
                     <connections>
                         <outlet property="errors" destination="65N-fX-LQQ" id="RCc-6i-aCn"/>
                         <outlet property="signupEmail" destination="1Xf-jj-oxk" id="6fS-KQ-yzO"/>
+                        <outlet property="signupNickname" destination="PE5-ZO-Qwv" id="3tb-gQ-USb"/>
                         <outlet property="signupPassword" destination="dwf-KB-3rK" id="xDA-83-zyY"/>
                     </connections>
                 </viewController>
