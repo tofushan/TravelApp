@@ -80,11 +80,8 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
                         let annotation = MKPointAnnotation()
                         annotation.coordinate = location.coordinate
                         annotation.title = name
-<<<<<<< HEAD
-                        annotation.subtitle = "I visited \(name) in 2020"
-=======
+
                         annotation.subtitle = "I visited \(name) on (date)"
->>>>>>> yx87
                         self.mapView.addAnnotation(annotation)
                     
                 }
@@ -94,11 +91,7 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 
-<<<<<<< HEAD
-        var annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: annotation.title!!)
-=======
         let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: annotation.title!!)
->>>>>>> yx87
         let redValue = CGFloat.random(in: 0...1)
         let greenValue = CGFloat.random(in: 0...1)
         let blueValue = CGFloat.random(in: 0...1)
@@ -108,16 +101,11 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
         let countryCode = locale.countryCode(by: annotation.title!!)
         annotationView.glyphText = getFlag(from: countryCode ?? "US")
         
-<<<<<<< HEAD
-=======
         // detail button on right side of the callout
->>>>>>> yx87
         let btn = UIButton(type: .detailDisclosure)
         annotationView.canShowCallout = true
         annotationView.rightCalloutAccessoryView = btn
         
-<<<<<<< HEAD
-=======
         // flag on left side of the callout
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 30, height: 20))
         label.text = getFlag(from: countryCode ?? "US")
@@ -125,18 +113,11 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
         // detail callout
         //annotationView.detailCalloutAccessoryView = UIImageView(image: #imageLiteral(resourceName: "plane.png"))
         
->>>>>>> yx87
         return annotationView
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         let annotation = view.annotation
-<<<<<<< HEAD
-        let placeName = annotation?.title
-        let placeInfo = annotation?.subtitle
-
-        let ac = UIAlertController(title: placeName as! String, message: placeInfo as! String, preferredStyle: .alert)
-=======
         
         let locale = Locale(identifier: "en_US")
         let countryCode = locale.countryCode(by: (annotation?.title!!)!)
@@ -146,7 +127,6 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
         let placeInfo = getFlag(from: countryCode ?? "US") + (annotation?.subtitle)!!
 
         let ac = UIAlertController(title: placeName!!, message: placeInfo, preferredStyle: .alert)
->>>>>>> yx87
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
     }
