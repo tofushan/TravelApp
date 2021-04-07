@@ -48,26 +48,35 @@ class settingsTableViewController: UITableViewController {
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        print(indexPath.row)
-        
-        if indexPath.row == 1 {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
             self.performSegue(withIdentifier: "myAccountView", sender: self)
         }
-        else if indexPath.row == 2 {
+        else if indexPath.row == 1 {
             self.performSegue(withIdentifier: "myTripsView", sender: self)
         }
-        else if indexPath.row == 3 {
+        else if indexPath.row == 2 {
             self.performSegue(withIdentifier: "securityAndPrivacyView", sender: self)
         }
-        else if indexPath.row == 4 {
+        else if indexPath.row == 3 {
             self.performSegue(withIdentifier: "helpView", sender: self)
         }
-        else if indexPath.row == 5 {
+        else if indexPath.row == 4 {
             self.performSegue(withIdentifier: "aboutView", sender: self)
         }
     }
+    
+    
+    /*
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "myAccountNav") as UIViewController
+            self.present(viewController, animated: false, completion: nil)
+        }
+    }
+ */
+       
     
 
     /*

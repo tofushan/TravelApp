@@ -746,7 +746,7 @@
         <!--Navigation Controller-->
         <scene sceneID="PtU-J3-zqz">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rez-WC-8fI" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="myAccountNav" automaticallyAdjustsScrollViewInsets="NO" id="rez-WC-8fI" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NeS-Vm-FQL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
