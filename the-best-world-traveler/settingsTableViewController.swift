@@ -11,7 +11,13 @@ class settingsTableViewController: UITableViewController {
 
     var settings: [String] = ["My Account", "My Trips", "Security & Privacy", "Help", "About"]
     
+    
+    
     override func viewDidLoad() {
+        
+        //self.hideKeyboardWhenTappedAround()
+        tableView?.allowsSelection = true
+
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
@@ -42,6 +48,26 @@ class settingsTableViewController: UITableViewController {
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        print(indexPath.row)
+        
+        if indexPath.row == 1 {
+            self.performSegue(withIdentifier: "myAccountView", sender: self)
+        }
+        else if indexPath.row == 2 {
+            self.performSegue(withIdentifier: "myTripsView", sender: self)
+        }
+        else if indexPath.row == 3 {
+            self.performSegue(withIdentifier: "securityAndPrivacyView", sender: self)
+        }
+        else if indexPath.row == 4 {
+            self.performSegue(withIdentifier: "helpView", sender: self)
+        }
+        else if indexPath.row == 5 {
+            self.performSegue(withIdentifier: "aboutView", sender: self)
+        }
+    }
     
 
     /*
@@ -90,3 +116,17 @@ class settingsTableViewController: UITableViewController {
     */
 
 }
+
+/*
+extension settingsTableViewController{
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(settingsTableViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        tap.cancelsTouchesInView = false
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+ */
