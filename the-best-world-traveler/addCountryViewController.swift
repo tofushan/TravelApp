@@ -9,10 +9,10 @@ import UIKit
 
 class addCountryViewController: UIViewController, UISearchBarDelegate {
     
-    var country: String = ""
-
-
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var notesBox: UITextView!
+    
+    var country: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +27,8 @@ class addCountryViewController: UIViewController, UISearchBarDelegate {
         
         searchBar.delegate = self
         
+        self.notesBox.layer.borderColor = UIColor.lightGray.cgColor
+        self.notesBox.layer.borderWidth = 1
     }
 
     @objc func back() {
@@ -49,16 +51,16 @@ class addCountryViewController: UIViewController, UISearchBarDelegate {
         print("searchText \(searchBar.text ?? "")")
     }
 
-
     
     // MARK: - Navigation
     /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cvc = segue.destination as! addedCityTableViewController
-        
+
     }
     */
+    
     
     
 

@@ -46,7 +46,6 @@ class addedCityTableViewController: UITableViewController {
             cell.cityName.text = citiesVisited[indexPath.row] as String
             return cell
     }
-    
 
     /*
     // Override to support conditional editing of the table view.
@@ -92,5 +91,4 @@ class addedCityTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
