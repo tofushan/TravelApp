@@ -62,6 +62,7 @@ class mapViewController: UIViewController, UISearchBarDelegate {
                         self.mapView.setRegion(region, animated: true)
                         
                         // clear existing pins
+                        self.mapView.removeAnnotations(self.mapView.self.annotations)
 
                         let annotation = MKPointAnnotation()
                         annotation.coordinate = location.coordinate
