@@ -9,7 +9,7 @@ import UIKit
 
 class settingsTableViewController: UITableViewController {
 
-    var settings: [String] = ["My Account", "My Trips", "Security & Privacy", "Help", "About"]
+    var settings: [String] = ["My Account", "My Trips", "Security & Privacy", "Help", "About Us"]
     
     
     
