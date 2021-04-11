@@ -16,9 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // configure firebase
         
+        // configure firebase
         FirebaseApp.configure()
+        // initialize an instance of firestore
+    
         // Override point for customization after application launch.
         return true
     }
