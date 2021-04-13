@@ -77,7 +77,7 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
                         
                         // clear existing pins
 
-                        self.mapView.removeAnnotations(self.mapView.self.annotations)
+                        //self.mapView.removeAnnotations(self.mapView.self.annotations)
 
                         let annotation = MKPointAnnotation()
                         annotation.coordinate = location.coordinate
