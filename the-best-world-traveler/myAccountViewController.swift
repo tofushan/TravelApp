@@ -1,20 +1,18 @@
 //
-//  addCountryViewController.swift
+//  myAccountViewController.swift
 //  the-best-world-traveler
 //
-//  Created by Jaylyn Barbee on 3/30/21.
+//  Created by Avery Brown II on 4/10/21.
 //
 
 import UIKit
 
-class addCountryViewController: UISearchController {
-    
+class myAccountViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let searchBar = UISearchBar()
-        searchBar.sizeToFit()
-        navigationItem.titleView = searchBar
+        // Do any additional setup after loading the view.
     }
     
 
