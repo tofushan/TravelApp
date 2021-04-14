@@ -9,14 +9,27 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
+
+public struct counties: Codable {
+    let date: String
+    let city: String
+    let note: String
+}
+
+
+
+
 class MyTripsTableViewController: UITableViewController {
     
     let db = Firestore.firestore()
+    var countries_to_visit: [String:[String]] = [ : ]
     
     override func viewDidLoad() {
+        
+        self.fetchTripsFromUser()
         super.viewDidLoad()
-        fetchTripsFromUser()
-        print("check")
+    
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -24,8 +37,7 @@ class MyTripsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    
-    internal func fetchTripsFromUser() {
+    func fetchTripsFromUser() {
         // get user ID to store the data
         let userID : String = (Auth.auth().currentUser?.uid)!
         
@@ -35,17 +47,18 @@ class MyTripsTableViewController: UITableViewController {
                 let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                 print("Document data: \(dataDescription)")
                 
-                let email: String = document.get("email") as! String
-                let nickname: String = document.get("nickname") as! String
-                //let countries_to_visit: String = document.get("countries_to_visit.") as [String]
-                
-                //print(countries_to_visit)
-                
+                // Look at here for retrieving the user data
+                // let email: String = document.get("email") as! String
+                // let nickname: String = document.get("nickname") as! String
+                self.countries_to_visit = document.get("countries_to_visit") as! [String:[String]]
+                self.tableView.reloadData()
             } else {
                 print("Document does not exist")
             }
         }
     }
+    
+
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -54,18 +67,19 @@ class MyTripsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return Array(self.countries_to_visit.keys).count
     }
 
-    /*
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyTripsCell", for: indexPath)
 
         // Configure the cell...
-
+        let countriesList: [String] = Array(self.countries_to_visit.keys)
+        cell.textLabel?.text = countriesList[indexPath.row]
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
