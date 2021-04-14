@@ -33,7 +33,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         locationManager.requestWhenInUseAuthorization()
         
         let locationTableViewController = storyboard!.instantiateViewController(withIdentifier: "locationTableViewController") as! locationTableViewController
+        
         locationSearchController = UISearchController(searchResultsController: locationTableViewController)
+        
         locationSearchController?.searchResultsUpdater = locationTableViewController
     
         let searchBar = locationSearchController!.searchBar

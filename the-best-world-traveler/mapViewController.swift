@@ -7,23 +7,57 @@
 
 import UIKit
 import MapKit
+import FirebaseAuth
+import Firebase
+
+
+
 
 class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegate {
     
     // get all the countries in Swift
     //let countries : [ String ] = Locale.isoRegionCodes.compactMap { Locale.current.localizedString(forRegionCode: $0) }
-    let countries: [String] = ["United States", "Canada", "Mexico"]
+    var countries_to_visit: [String:[String]] = [ : ]
+    
+    let db = Firestore.firestore()
+    
+    /*
+     This block of code fetch user data
+     */
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var searchBar: UISearchBar!
+
     
     private var boundingRegion: MKCoordinateRegion = MKCoordinateRegion(MKMapRect.world)
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        print(countries)
-        self.displayAnnotations()
         mapView.delegate = self
         searchBar.delegate = self
+
+        self.fetchTripsFromUser()
+        super.viewDidLoad()
+    }
+    
+    func fetchTripsFromUser() {
+        // get user ID to store the data
+        let userID : String = (Auth.auth().currentUser?.uid)!
+        
+        let userData = db.collection("users").document(userID)
+        userData.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                print("MapView: Document data: \(dataDescription)")
+                
+                // Look at here for retrieving the user data
+                // let email: String = document.get("email") as! String
+                // let nickname: String = document.get("nickname") as! String
+                self.countries_to_visit = document.get("countries_to_visit") as! [String:[String]]
+                self.displayAnnotations()
+            } else {
+                print("Document does not exist")
+            }
+        }
     }
     
     internal func getFlag(from countryCode: String) -> String {
@@ -35,6 +69,8 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
             .map(String.init)
             .joined()
     }
+    
+    
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
@@ -77,9 +113,12 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
                         
                         // clear existing pins
 
+                        //self.mapView.removeAnnotations(self.mapView.self.annotations)
+
                         let annotation = MKPointAnnotation()
                         annotation.coordinate = location.coordinate
                         annotation.title = name
+
                         annotation.subtitle = "I visited \(name) on (date)"
                         self.mapView.addAnnotation(annotation)
                     
@@ -90,6 +129,7 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 
+        
         let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: annotation.title!!)
         let redValue = CGFloat.random(in: 0...1)
         let greenValue = CGFloat.random(in: 0...1)
@@ -116,6 +156,7 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
         let annotation = view.annotation
         
         let locale = Locale(identifier: "en_US")
@@ -130,8 +171,10 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
         present(ac, animated: true)
     }
     
+    
     private func displayAnnotations() {
-        for country in self.countries {
+        let countries: [String] = Array(self.countries_to_visit.keys)
+        for country in countries {
             let searchRequest = MKLocalSearch.Request()
             searchRequest.naturalLanguageQuery = country
             search(using: searchRequest)
@@ -139,3 +182,5 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
     }
     
 }
+
+
