@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class addCountryViewController: UIViewController, UISearchBarDelegate {
     
@@ -13,6 +15,10 @@ class addCountryViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var notesBox: UITextView!
     
     var country: String = ""
+    
+    let db = Firestore.firestore()
+    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +35,7 @@ class addCountryViewController: UIViewController, UISearchBarDelegate {
         
         self.notesBox.layer.borderColor = UIColor.lightGray.cgColor
         self.notesBox.layer.borderWidth = 1
+
     }
 
     @objc func back() {
@@ -36,7 +43,27 @@ class addCountryViewController: UIViewController, UISearchBarDelegate {
     }
     
     @objc func add(){
-        print("Will figure out save logic later")
+        // print("Will figure out save logic later")
+        
+        // get user ID to store the data
+        let userID : String = (Auth.auth().currentUser?.uid)!
+        print("Current user ID is = " + userID)
+        
+        // get the reference which the user data point to
+        let userData = db.collection("users").document(userID).updateData([
+            // store data like: "countries_to_visit.unite_state" : [ "date", "cities", "notes" ]
+            // TODO: please enter the information in the list
+            "countries_to_visit" + "." + country : [],
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+        
+        
+        
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

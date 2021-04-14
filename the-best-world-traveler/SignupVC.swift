@@ -37,10 +37,13 @@ class SignupVC: UIViewController {
                     self.errors.text = error?.localizedDescription
                 }
                 // successfully register!
-                else {
+                else{
                     // add user information to firestore as well for later uses
-                    var ref: DocumentReference? = nil
-                    ref = self.db.collection("users").addDocument(data: [
+                    
+                    // get user id to get access to user data
+                    let userID : String = (Auth.auth().currentUser?.uid)!
+                    
+                    self.db.collection("users").document(userID).setData([
                         "email": self.signupEmail.text,
                         "nickname": self.signupNickname.text,
                         "countries_to_visit":[],
@@ -50,7 +53,7 @@ class SignupVC: UIViewController {
                         if let err = err {
                             print("Error adding document: \(err)")
                         } else {
-                            print("Document added with ID: \(ref!.documentID) ")
+                            print("Document added with ID: \(userID) ")
                         }
                     }
                     
