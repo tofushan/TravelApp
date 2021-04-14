@@ -35,7 +35,8 @@ class addCountryViewController: UIViewController, UISearchBarDelegate {
         
         self.notesBox.layer.borderColor = UIColor.lightGray.cgColor
         self.notesBox.layer.borderWidth = 1
-
+        
+        
     }
 
     @objc func back() {
@@ -47,11 +48,11 @@ class addCountryViewController: UIViewController, UISearchBarDelegate {
         
         // get user ID to store the data
         let userID : String = (Auth.auth().currentUser?.uid)!
-        print("Current user ID is = " + userID)
+        //print("Current user ID is = " + userID)
         
         // get the reference which the user data point to
         let userData = db.collection("users").document(userID).updateData([
-            // store data like: "countries_to_visit.unite_state" : [ "date", "cities", "notes" ]
+            // store data like: "countries_to_visit.United State" : [ "date", "cities", "notes" ]
             // TODO: please enter the information in the list
             "countries_to_visit" + "." + country : [],
         ]) { err in

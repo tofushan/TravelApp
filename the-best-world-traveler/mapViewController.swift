@@ -7,6 +7,11 @@
 
 import UIKit
 import MapKit
+import FirebaseAuth
+import Firebase
+
+
+
 
 class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegate {
     
@@ -14,16 +19,24 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
     //let countries : [ String ] = Locale.isoRegionCodes.compactMap { Locale.current.localizedString(forRegionCode: $0) }
     let countries: [String] = ["United States", "Canada", "Mexico"]
     
+    let db = Firestore.firestore()
+    
+    /*
+     This block of code fetch user data
+     */
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var searchBar: UISearchBar!
+
     
     private var boundingRegion: MKCoordinateRegion = MKCoordinateRegion(MKMapRect.world)
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(countries)
+        //print(countries)
         self.displayAnnotations()
         mapView.delegate = self
         searchBar.delegate = self
+        
     }
     
     internal func getFlag(from countryCode: String) -> String {
@@ -35,6 +48,8 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
             .map(String.init)
             .joined()
     }
+    
+    
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
@@ -93,6 +108,7 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 
+        
         let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: annotation.title!!)
         let redValue = CGFloat.random(in: 0...1)
         let greenValue = CGFloat.random(in: 0...1)
@@ -119,6 +135,7 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
         let annotation = view.annotation
         
         let locale = Locale(identifier: "en_US")
@@ -133,6 +150,7 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
         present(ac, animated: true)
     }
     
+    
     private func displayAnnotations() {
         for country in self.countries {
             let searchRequest = MKLocalSearch.Request()
@@ -142,3 +160,5 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
     }
     
 }
+
+
