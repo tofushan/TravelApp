@@ -17,7 +17,7 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
     
     // get all the countries in Swift
     //let countries : [ String ] = Locale.isoRegionCodes.compactMap { Locale.current.localizedString(forRegionCode: $0) }
-    let countries: [String] = ["United States", "Canada", "Mexico"]
+    var countries_to_visit: [String:[String]] = [ : ]
     
     let db = Firestore.firestore()
     
@@ -30,13 +30,34 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
 
     
     private var boundingRegion: MKCoordinateRegion = MKCoordinateRegion(MKMapRect.world)
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        //print(countries)
-        self.displayAnnotations()
         mapView.delegate = self
         searchBar.delegate = self
+
+        self.fetchTripsFromUser()
+        super.viewDidLoad()
+    }
+    
+    func fetchTripsFromUser() {
+        // get user ID to store the data
+        let userID : String = (Auth.auth().currentUser?.uid)!
         
+        let userData = db.collection("users").document(userID)
+        userData.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                print("MapView: Document data: \(dataDescription)")
+                
+                // Look at here for retrieving the user data
+                // let email: String = document.get("email") as! String
+                // let nickname: String = document.get("nickname") as! String
+                self.countries_to_visit = document.get("countries_to_visit") as! [String:[String]]
+                self.displayAnnotations()
+            } else {
+                print("Document does not exist")
+            }
+        }
     }
     
     internal func getFlag(from countryCode: String) -> String {
@@ -152,7 +173,8 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
     
     
     private func displayAnnotations() {
-        for country in self.countries {
+        let countries: [String] = Array(self.countries_to_visit.keys)
+        for country in countries {
             let searchRequest = MKLocalSearch.Request()
             searchRequest.naturalLanguageQuery = country
             search(using: searchRequest)
