@@ -517,6 +517,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="EZo-sW-R2o"/>
                     <connections>
+                        <outlet property="arrivalDate" destination="s9A-SG-gXG" id="nBt-RJ-ERZ"/>
+                        <outlet property="departureDate" destination="MzY-d8-jNP" id="PeN-w0-aJX"/>
                         <outlet property="notesBox" destination="oOa-e4-OD5" id="N6B-eI-hJx"/>
                         <outlet property="searchBar" destination="3Lr-zx-UJo" id="v4e-Q5-Sm0"/>
                     </connections>
