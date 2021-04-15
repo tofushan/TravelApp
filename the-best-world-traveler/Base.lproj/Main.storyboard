@@ -764,7 +764,7 @@
         <!--Security & Privacy-->
         <scene sceneID="m1W-Z9-g42">
             <objects>
-                <viewController storyboardIdentifier="securityAndPrivacy" title="Security &amp; Privacy" id="Tza-Nh-hhi" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="securityAndPrivacy" title="Security &amp; Privacy" id="Tza-Nh-hhi" customClass="SecurityVC" customModule="the_best_world_traveler" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BGf-hC-DdA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -781,6 +781,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 <state key="normal" title="Change Password"/>
+                                <connections>
+                                    <action selector="sendEmailForChaningPassword:" destination="Tza-Nh-hhi" eventType="touchUpInside" id="tuX-KT-5vf"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SAS-Kr-dSx"/>

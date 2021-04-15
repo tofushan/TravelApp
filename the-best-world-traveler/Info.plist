@@ -71,5 +71,7 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>This program is using your location data</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app wants to use your photo</string>
 </dict>
 </plist>

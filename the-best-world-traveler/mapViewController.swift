@@ -52,7 +52,9 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
                 // Look at here for retrieving the user data
                 // let email: String = document.get("email") as! String
                 // let nickname: String = document.get("nickname") as! String
-                self.countries_to_visit = document.get("countries_to_visit") as! [String:[String]]
+                
+                self.countries_to_visit = document.get("countries_to_visit") as? [String:[String]] ?? [:]
+                
                 self.displayAnnotations()
             } else {
                 print("Document does not exist")
