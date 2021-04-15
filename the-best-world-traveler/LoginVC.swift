@@ -30,10 +30,10 @@ class LoginVC: UIViewController {
             Auth.auth().signIn(withEmail: self.inputEmail.text!, password: self.inputPassword.text!) { (user, error) in
                 
                 if error != nil {
-                let alert = UIAlertController(title: "Error", message: "\(error!.localizedDescription)", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Error", message: "\(error!.localizedDescription)", preferredStyle: .alert)
                 
-                alert.addAction(UIAlertAction(title: "Dismissed", style: .default, handler: nil))
-                self.present(alert, animated: true)
+                    alert.addAction(UIAlertAction(title: "Dismissed", style: .default, handler: nil))
+                    self.present(alert, animated: true)
                 }
                 
                 else {
