@@ -40,7 +40,7 @@ class addCountryViewController: UIViewController, UISearchBarDelegate {
         self.notesBox.layer.borderColor = UIColor.lightGray.cgColor
         self.notesBox.layer.borderWidth = 1
         
-        add()
+        //add()
     }
     
   
@@ -67,8 +67,8 @@ class addCountryViewController: UIViewController, UISearchBarDelegate {
         dateFormatter.dateFormat = "dd"
         let d_day: String = dateFormatter.string(from: self.departureDate.date)
         
-        let arrive: String = a_year + "/" + a_month + "/" + a_day
-        let depart: String = d_year + "/" + d_month + "/" + d_day
+        let arrive: String = a_month + "/" + a_day + "/" + a_year
+        let depart: String = d_month + "/" + d_day + "/" + d_year
         
         let notes: String = notesBox.text
         
@@ -85,8 +85,16 @@ class addCountryViewController: UIViewController, UISearchBarDelegate {
         ]) { err in
             if let err = err {
                 print("Error updating document: \(err)")
+                let alert = UIAlertController(title: "Error", message: "\(err)", preferredStyle: .alert)
+            
+                alert.addAction(UIAlertAction(title: "Dismissed", style: .default, handler: nil))
+                self.present(alert, animated: true)
             } else {
                 print("Document successfully updated")
+                let alert = UIAlertController(title: "Success", message: "Travel plan successfully added", preferredStyle: .alert)
+            
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true)
             }
         }
         

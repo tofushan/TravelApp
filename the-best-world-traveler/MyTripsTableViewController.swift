@@ -78,6 +78,7 @@ class MyTripsTableViewController: UITableViewController {
         // Configure the cell...
         let countriesList: [String] = Array(self.countries_to_visit.keys)
         cell.textLabel?.text = countriesList[indexPath.row]
+        cell.detailTextLabel?.text = countries_to_visit[countriesList[indexPath.row]]?[0]
         return cell
     }
 
