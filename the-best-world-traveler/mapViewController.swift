@@ -32,6 +32,7 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
     private var boundingRegion: MKCoordinateRegion = MKCoordinateRegion(MKMapRect.world)
     
     override func viewDidLoad() {
+        print("view did load!")
         mapView.delegate = self
         searchBar.delegate = self
 
@@ -39,6 +40,10 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
         super.viewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.fetchTripsFromUser()
+    }
+        
     func fetchTripsFromUser() {
         // get user ID to store the data
         let userID : String = (Auth.auth().currentUser?.uid)!
