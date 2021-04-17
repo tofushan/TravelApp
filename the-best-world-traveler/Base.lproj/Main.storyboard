@@ -687,11 +687,41 @@
                         <segue destination="hAl-9i-ddT" kind="relationship" relationship="viewControllers" id="NXa-N5-g6Z"/>
                         <segue destination="Ghd-vd-Kmc" kind="relationship" relationship="viewControllers" id="EGV-9U-YIh"/>
                         <segue destination="ydw-nK-vX8" kind="relationship" relationship="viewControllers" id="8Rc-jS-kBG"/>
+                        <segue destination="hUW-in-Ceu" kind="relationship" relationship="viewControllers" id="QTY-t5-27y"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lwy-7f-A98" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="446" y="40"/>
+        </scene>
+        <!--Friends-->
+        <scene sceneID="rAs-fQ-ci4">
+            <objects>
+                <tableViewController title="Friends" id="hUW-in-Ceu" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KyM-m3-GUr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gWG-1o-D0d">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gWG-1o-D0d" id="Wb9-vP-TfQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hUW-in-Ceu" id="5yo-ZE-gSA"/>
+                            <outlet property="delegate" destination="hUW-in-Ceu" id="kPz-5G-4aw"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Friends" id="FbK-FP-POs"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hFG-jK-8tV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="493" y="984"/>
         </scene>
         <!--Map-->
         <scene sceneID="idi-xE-j6A">
