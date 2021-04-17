@@ -3,7 +3,7 @@
 //  the-best-world-traveler
 //
 //  Created by Hsuan Fu Liu on 4/13/21.
-//
+//  Edited by Christina Le on 4/17/21.
 
 import UIKit
 import Firebase
@@ -69,7 +69,7 @@ class MyTripsTableViewController: UITableViewController {
                 // Look at here for retrieving the user data
                 // let email: String = document.get("email") as! String
                 // let nickname: String = document.get("nickname") as! String
-                print(self.row)
+                // print(self.row)
                 if self.row == 1{
                     self.countries = document.get("countries_to_visit") as? [String:[String]] ?? [:]
                 }

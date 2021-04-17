@@ -3,7 +3,7 @@
 //  the-best-world-traveler
 //
 //  Created by Jaylyn Barbee on 4/4/21.
-//
+//  Edited by Christina on 4/17/21.
 
 import UIKit
 import Firebase
@@ -24,6 +24,7 @@ class addCountryViewController: UIViewController, UISearchBarDelegate {
     var country: String = ""
     var countryVisited: Bool = true
     var countryToVisit: Bool = false
+    var cities: String = ""
     
     let db = Firestore.firestore()
     
@@ -116,7 +117,7 @@ class addCountryViewController: UIViewController, UISearchBarDelegate {
                 // store data like: "countries_to_visit.United State" : [ "date", "cities", "notes" ]
                 // TODO: please enter the information in the list
                 
-                "countries_already_visit" + "." + country : [ depart + " - " + arrive, "New York", notes ],
+                "countries_already_visit" + "." + country : [ depart + " - " + arrive, self.cities, notes ],
             ])
             { err in
             if let err = err {
@@ -139,7 +140,7 @@ class addCountryViewController: UIViewController, UISearchBarDelegate {
                 // store data like: "countries_to_visit.United State" : [ "date", "cities", "notes" ]
                 // TODO: please enter the information in the list
                 
-                "countries_to_visit" + "." + country : [ depart + " - " + arrive, "New York", notes ],
+                "countries_to_visit" + "." + country : [ depart + " - " + arrive, self.cities, notes ],
             ])
             { err in
             if let err = err {
@@ -170,6 +171,7 @@ class addCountryViewController: UIViewController, UISearchBarDelegate {
         let CVC = children.last as! addedCityTableViewController
 
         CVC.changeData(data: searchBar.text!)
+        self.cities = self.cities + searchBar.text! + ", "
         
         print("searchText \(searchBar.text ?? "")")
     }

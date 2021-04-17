@@ -530,6 +530,9 @@
                                 <state key="normal" title="Want to visit!">
                                     <color key="titleColor" name="AccentColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickToVisit:" destination="muw-tO-Pj9" eventType="touchUpInside" id="uq3-go-GYl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXc-Us-5rE">
                                 <rect key="frame" x="134" y="79" width="34" height="31"/>
@@ -582,6 +585,7 @@
                         <outlet property="departureDate" destination="MzY-d8-jNP" id="PeN-w0-aJX"/>
                         <outlet property="notesBox" destination="oOa-e4-OD5" id="N6B-eI-hJx"/>
                         <outlet property="searchBar" destination="3Lr-zx-UJo" id="v4e-Q5-Sm0"/>
+                        <outlet property="toVisitButton" destination="yR0-CO-4US" id="5X2-XS-QSN"/>
                         <outlet property="visitedButton" destination="bXc-Us-5rE" id="iIU-ES-rTC"/>
                     </connections>
                 </viewController>
