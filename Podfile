@@ -9,4 +9,8 @@ target 'the-best-world-traveler' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
+  pod 'SDWebImage'
+  pod 'FirebaseUI/Firestore'
+  pod 'FirebaseUI/Storage'
 end
