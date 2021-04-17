@@ -262,14 +262,22 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="settingTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lg9-Ce-oQe">
-                                            <rect key="frame" x="26" y="17" width="350" height="67"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="settingTitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lg9-Ce-oQe">
+                                            <rect key="frame" x="32" y="30" width="350" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="350" id="6kP-8q-Z05"/>
+                                                <constraint firstAttribute="height" constant="40" id="G5x-T3-EbY"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="lg9-Ce-oQe" firstAttribute="centerX" secondItem="F0f-OO-enk" secondAttribute="centerX" id="SBp-FK-hlC"/>
+                                        <constraint firstItem="lg9-Ce-oQe" firstAttribute="centerY" secondItem="F0f-OO-enk" secondAttribute="centerY" id="oD6-Ro-e5z"/>
+                                        <constraint firstItem="lg9-Ce-oQe" firstAttribute="leading" secondItem="F0f-OO-enk" secondAttribute="leading" constant="32" id="zdR-bs-OYA"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="settingTitle" destination="lg9-Ce-oQe" id="veE-U6-MPc"/>

@@ -27,6 +27,12 @@ class MyTripsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         
+        if row == 1{
+            self.title = "Trips Planned"
+        }
+        else{
+            self.title = "Trips Completed"
+        }
         self.fetchTripsFromUser()
         super.viewDidLoad()
     
