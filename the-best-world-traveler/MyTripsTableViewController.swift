@@ -50,7 +50,7 @@ class MyTripsTableViewController: UITableViewController {
                 // Look at here for retrieving the user data
                 // let email: String = document.get("email") as! String
                 // let nickname: String = document.get("nickname") as! String
-                self.countries_to_visit = document.get("countries_to_visit") as! [String:[String]]
+                self.countries_to_visit = document.get("countries_to_visit") as? [String:[String]] ?? [:]
                 self.tableView.reloadData()
             } else {
                 print("Document does not exist")
@@ -78,6 +78,7 @@ class MyTripsTableViewController: UITableViewController {
         // Configure the cell...
         let countriesList: [String] = Array(self.countries_to_visit.keys)
         cell.textLabel?.text = countriesList[indexPath.row]
+        cell.detailTextLabel?.text = countries_to_visit[countriesList[indexPath.row]]?[0]
         return cell
     }
 

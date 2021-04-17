@@ -14,6 +14,10 @@ class addCountryViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var notesBox: UITextView!
     
+    @IBOutlet weak var arrivalDate: UIDatePicker!
+    @IBOutlet weak var departureDate: UIDatePicker!
+
+    
     var country: String = ""
     
     let db = Firestore.firestore()
@@ -36,14 +40,37 @@ class addCountryViewController: UIViewController, UISearchBarDelegate {
         self.notesBox.layer.borderColor = UIColor.lightGray.cgColor
         self.notesBox.layer.borderWidth = 1
         
+        //add()
     }
+    
+  
 
     @objc func back() {
         self.dismiss(animated: true, completion: nil)
     }
     
     @objc func add(){
-        // print("Will figure out save logic later")
+        
+        // data to store
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy"
+        let a_year: String = dateFormatter.string(from: self.arrivalDate.date)
+        dateFormatter.dateFormat = "MM"
+        let a_month: String = dateFormatter.string(from: self.arrivalDate.date)
+        dateFormatter.dateFormat = "dd"
+        let a_day: String = dateFormatter.string(from: self.arrivalDate.date)
+        
+        dateFormatter.dateFormat = "yyyy"
+        let d_year: String = dateFormatter.string(from: self.departureDate.date)
+        dateFormatter.dateFormat = "MM"
+        let d_month: String = dateFormatter.string(from: self.departureDate.date)
+        dateFormatter.dateFormat = "dd"
+        let d_day: String = dateFormatter.string(from: self.departureDate.date)
+        
+        let arrive: String = a_month + "/" + a_day + "/" + a_year
+        let depart: String = d_month + "/" + d_day + "/" + d_year
+        
+        let notes: String = notesBox.text
         
         // get user ID to store the data
         let userID : String = (Auth.auth().currentUser?.uid)!
@@ -53,12 +80,21 @@ class addCountryViewController: UIViewController, UISearchBarDelegate {
         let userData = db.collection("users").document(userID).updateData([
             // store data like: "countries_to_visit.United State" : [ "date", "cities", "notes" ]
             // TODO: please enter the information in the list
-            "countries_to_visit" + "." + country : [ "20200101-20200201", "New York", "This place is fun." ],
+            
+            "countries_to_visit" + "." + country : [ depart + " - " + arrive, "New York", notes ],
         ]) { err in
             if let err = err {
                 print("Error updating document: \(err)")
+                let alert = UIAlertController(title: "Error", message: "\(err)", preferredStyle: .alert)
+            
+                alert.addAction(UIAlertAction(title: "Dismissed", style: .default, handler: nil))
+                self.present(alert, animated: true)
             } else {
                 print("Document successfully updated")
+                let alert = UIAlertController(title: "Success", message: "Travel plan successfully added", preferredStyle: .alert)
+            
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true)
             }
         }
         

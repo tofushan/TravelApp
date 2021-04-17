@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class settingsTableViewController: UITableViewController {
 
-    var settings: [String] = ["My Account", "My Trips", "Security & Privacy", "Help", "About Us"]
+    var settings: [String] = ["My Account", "My Trips", "Security & Privacy", "Help", "About Us", "Log out"]
     
     
     
@@ -64,6 +66,16 @@ class settingsTableViewController: UITableViewController {
         }
         else if indexPath.row == 4 {
             self.performSegue(withIdentifier: "aboutView", sender: self)
+        }
+        else if indexPath.row == 5 {
+            do {
+                // sign out and go back to root page (login page)
+                try Auth.auth().signOut()
+                self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+            }
+            catch {
+                print("Cannot logout!")
+            }
         }
     }
     
