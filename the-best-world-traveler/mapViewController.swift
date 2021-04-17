@@ -18,9 +18,10 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
     // get all the countries in Swift
     //let countries : [ String ] = Locale.isoRegionCodes.compactMap { Locale.current.localizedString(forRegionCode: $0) }
     var countries_to_visit: [String:[String]] = [ : ]
-    
+    var countries_visited: [String:[String]] = [ : ]
     let db = Firestore.firestore()
-    
+    var dictionary: [Int: Int] = [:]
+    var category: Int = 0
     /*
      This block of code fetch user data
      */
@@ -32,7 +33,7 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
     private var boundingRegion: MKCoordinateRegion = MKCoordinateRegion(MKMapRect.world)
     
     override func viewDidLoad() {
-        print("view did load!")
+        print("map view did load!")
         mapView.delegate = self
         searchBar.delegate = self
 
@@ -44,7 +45,7 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
         self.fetchTripsFromUser()
     }
         
-    func fetchTripsFromUser() {
+    private func fetchTripsFromUser() {
         // get user ID to store the data
         let userID : String = (Auth.auth().currentUser?.uid)!
         
@@ -125,7 +126,7 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
                         let annotation = MKPointAnnotation()
                         annotation.coordinate = location.coordinate
                         annotation.title = name
-
+                        self.dictionary[annotation.hash] = self.category
                         annotation.subtitle = "I visited \(name) on (date)"
                         self.mapView.addAnnotation(annotation)
                     
@@ -138,11 +139,17 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
 
         
         let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: annotation.title!!)
-        let redValue = CGFloat.random(in: 0...1)
-        let greenValue = CGFloat.random(in: 0...1)
-        let blueValue = CGFloat.random(in: 0...1)
-        annotationView.markerTintColor = UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: 1.0)
-        
+//        let redValue = CGFloat.random(in: 0...1)
+//        let greenValue = CGFloat.random(in: 0...1)
+//        let blueValue = CGFloat.random(in: 0...1)
+//        annotationView.markerTintColor = UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: 1.0)
+        if (self.dictionary[annotation.hash] == 0) {
+            annotationView.markerTintColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.5)
+        } else {
+            annotationView.markerTintColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.5)
+
+        }
+                
         let locale = Locale(identifier: "en_US")
         let countryCode = locale.countryCode(by: annotation.title!!)
         annotationView.glyphText = getFlag(from: countryCode ?? "US")
@@ -180,12 +187,22 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
     
     
     private func displayAnnotations() {
+        // add countries to visit, change the color to yellow
+        self.category = 0
         let countries: [String] = Array(self.countries_to_visit.keys)
         for country in countries {
             let searchRequest = MKLocalSearch.Request()
             searchRequest.naturalLanguageQuery = country
             search(using: searchRequest)
         }
+        // add countries visited, change the color to blue
+//        self.category = 1
+//        let visited: [String] = Array(self.countries_visited.keys)
+//        for country in visited {
+//            let searchRequest = MKLocalSearch.Request()
+//            searchRequest.naturalLanguageQuery = country
+//            search(using: searchRequest)
+//        }
     }
     
 }
