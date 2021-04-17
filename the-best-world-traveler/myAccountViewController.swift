@@ -24,6 +24,7 @@ class myAccountViewController: UIViewController {
     
     var tempName: String = ""
     var tempError: String = ""
+    var tempAvatar: UIImage = UIImage(named: "default-profile")!
     var image: UIImage? = nil
     
     @IBAction func saveNewAvatar(_ sender: Any){
@@ -110,11 +111,12 @@ class myAccountViewController: UIViewController {
         userData.getDocument { (document, error) in
             if let document = document, document.exists {
                 let profileImageUrl: String = document.get("profile_image_url") as! String
-                print(profileImageUrl)
-                let storageRef = Storage.storage().reference(forURL: profileImageUrl)
-                SDImageCache.shared.clearMemory()
-                SDImageCache.shared.clearDisk()
-                self.avatar.sd_setImage(with: storageRef, placeholderImage: UIImage(named: "default-profile.png"))
+                if profileImageUrl != ""{
+                    let storageRef = Storage.storage().reference(forURL: profileImageUrl)
+                    SDImageCache.shared.clearMemory()
+                    SDImageCache.shared.clearDisk()
+                    self.avatar.sd_setImage(with: storageRef, placeholderImage: UIImage(named: "default-profile.png"))
+                }
                 let nickname: String = document.get("nickname") as! String
                 self.name.text = nickname
             } else {
@@ -137,6 +139,7 @@ class myAccountViewController: UIViewController {
         
         name.text = tempName
         error.text = tempError
+        avatar.image = tempAvatar
         
         avatar.layer.borderWidth = 1
         avatar.layer.masksToBounds = false
