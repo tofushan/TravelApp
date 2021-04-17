@@ -22,7 +22,8 @@ public struct counties: Codable {
 class MyTripsTableViewController: UITableViewController {
     
     let db = Firestore.firestore()
-    var countries_to_visit: [String:[String]] = [ : ]
+    var countries: [String:[String]] = [ : ]
+    var row: Int = 1
     
     override func viewDidLoad() {
         
@@ -35,6 +36,18 @@ class MyTripsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        reloadData()
+    }
+
+    func reloadData() {
+        //All you need to update
+        self.fetchTripsFromUser()
+        
     }
 
     func fetchTripsFromUser() {
@@ -50,7 +63,13 @@ class MyTripsTableViewController: UITableViewController {
                 // Look at here for retrieving the user data
                 // let email: String = document.get("email") as! String
                 // let nickname: String = document.get("nickname") as! String
-                self.countries_to_visit = document.get("countries_to_visit") as? [String:[String]] ?? [:]
+                print(self.row)
+                if self.row == 1{
+                    self.countries = document.get("countries_to_visit") as? [String:[String]] ?? [:]
+                }
+                else {
+                    self.countries = document.get("countries_already_visit") as? [String:[String]] ?? [:]
+                }
                 self.tableView.reloadData()
             } else {
                 print("Document does not exist")
@@ -67,18 +86,18 @@ class MyTripsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return Array(self.countries_to_visit.keys).count
+        return Array(self.countries.keys).count
     }
 
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyTripsCell", for: indexPath)
-
+        
         // Configure the cell...
-        let countriesList: [String] = Array(self.countries_to_visit.keys)
+        let countriesList: [String] = Array(self.countries.keys)
         cell.textLabel?.text = countriesList[indexPath.row]
-        cell.detailTextLabel?.text = countries_to_visit[countriesList[indexPath.row]]?[0]
+        cell.detailTextLabel?.text = countries[countriesList[indexPath.row]]?[0]
         return cell
     }
 

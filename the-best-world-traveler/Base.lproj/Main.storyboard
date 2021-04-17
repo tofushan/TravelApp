@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -456,21 +457,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" text="" placeholder="Enter the cities you visited..." translatesAutoresizingMaskIntoConstraints="NO" id="3Lr-zx-UJo">
-                                <rect key="frame" x="0.0" y="191" width="414" height="56"/>
+                            <searchBar contentMode="redraw" misplaced="YES" text="" placeholder="Enter the cities you visited..." translatesAutoresizingMaskIntoConstraints="NO" id="3Lr-zx-UJo">
+                                <rect key="frame" x="0.0" y="243" width="414" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="r7z-0q-aAt"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="s9A-SG-gXG">
-                                <rect key="frame" x="112" y="66" width="302" height="63"/>
+                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="s9A-SG-gXG">
+                                <rect key="frame" x="112" y="118" width="302" height="63"/>
                             </datePicker>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="MzY-d8-jNP">
-                                <rect key="frame" x="112" y="120" width="302" height="63"/>
+                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="MzY-d8-jNP">
+                                <rect key="frame" x="112" y="172" width="302" height="63"/>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrival" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCX-yC-SCg">
-                                <rect key="frame" x="20" y="82" width="77" height="31"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Arrival" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCX-yC-SCg">
+                                <rect key="frame" x="20" y="134" width="77" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="77" id="34V-ep-3xU"/>
                                     <constraint firstAttribute="height" constant="31" id="Yuu-uA-KfN"/>
@@ -479,8 +480,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Departure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agh-Pi-GNW">
-                                <rect key="frame" x="20" y="136" width="77" height="31"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Departure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agh-Pi-GNW">
+                                <rect key="frame" x="20" y="188" width="77" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="77" id="hnV-xZ-F18"/>
                                     <constraint firstAttribute="height" constant="31" id="rPF-HF-hxT"/>
@@ -489,8 +490,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <containerView autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJb-8p-mhW">
-                                <rect key="frame" x="0.0" y="247" width="414" height="205"/>
+                            <containerView autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fJb-8p-mhW">
+                                <rect key="frame" x="0.0" y="299" width="414" height="205"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="414" id="PzO-wZ-hlL"/>
                                 </constraints>
@@ -498,15 +499,15 @@
                                     <segue destination="2SY-PP-gQ2" kind="embed" id="766-O0-Eml"/>
                                 </connections>
                             </containerView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter Trip Notes..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oOa-e4-OD5">
-                                <rect key="frame" x="20" y="498" width="374" height="186"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Enter Trip Notes..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oOa-e4-OD5">
+                                <rect key="frame" x="20" y="581" width="374" height="186"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip Notes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFW-kZ-pfC">
-                                <rect key="frame" x="111" y="460.5" width="192" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Trip Notes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFW-kZ-pfC">
+                                <rect key="frame" x="111" y="512" width="192" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="ZOb-b4-MmM"/>
                                 </constraints>
@@ -514,6 +515,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yR0-CO-4US">
+                                <rect key="frame" x="213" y="79" width="100" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                <state key="normal" title="Want to visit!">
+                                    <color key="titleColor" name="AccentColor"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXc-Us-5rE">
+                                <rect key="frame" x="134" y="79" width="34" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                <state key="normal" title="Visit">
+                                    <color key="titleColor" name="AccentColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickVisited:" destination="muw-tO-Pj9" eventType="touchUpInside" id="5Uw-k7-jRx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Sch-sJ-nW7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -554,6 +574,7 @@
                         <outlet property="departureDate" destination="MzY-d8-jNP" id="PeN-w0-aJX"/>
                         <outlet property="notesBox" destination="oOa-e4-OD5" id="N6B-eI-hJx"/>
                         <outlet property="searchBar" destination="3Lr-zx-UJo" id="v4e-Q5-Sm0"/>
+                        <outlet property="visitedButton" destination="bXc-Us-5rE" id="iIU-ES-rTC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PrT-5X-5AH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -994,6 +1015,9 @@
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="map" catalog="system" width="128" height="110"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

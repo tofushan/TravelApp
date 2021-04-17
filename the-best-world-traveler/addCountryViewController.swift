@@ -16,13 +16,46 @@ class addCountryViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var arrivalDate: UIDatePicker!
     @IBOutlet weak var departureDate: UIDatePicker!
+    
+    @IBOutlet weak var visitedButton: UIButton!
+    @IBOutlet weak var toVisitButton: UIButton!
 
     
     var country: String = ""
+    var countryVisited: Bool = true
+    var countryToVisit: Bool = false
     
     let db = Firestore.firestore()
     
    
+    @IBAction func clickVisited(_ sender: UIButton) {
+        deselectAllButtons()
+        visitedButton.isSelected = true
+        countryVisited = true
+        countryToVisit = false
+    }
+    
+    @IBAction func clickToVisit(_ sender: UIButton) {
+        deselectAllButtons()
+        toVisitButton.isSelected = true
+        countryVisited = false
+        countryToVisit = true
+    }
+    
+    
+    func deselectAllButtons(){
+        for subView in view.subviews
+          {
+            // Set all the other buttons as normal state
+            if let button = subView as? UIButton {
+                button.isSelected = false
+            }
+        }
+       //Or you can simply do write above for loop code with one line
+      /*
+       view.subviews.forEach { ($0 as? UIButton)?.isSelected = false }
+      */
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,12 +110,15 @@ class addCountryViewController: UIViewController, UISearchBarDelegate {
         //print("Current user ID is = " + userID)
         
         // get the reference which the user data point to
-        let userData = db.collection("users").document(userID).updateData([
-            // store data like: "countries_to_visit.United State" : [ "date", "cities", "notes" ]
-            // TODO: please enter the information in the list
-            
-            "countries_to_visit" + "." + country : [ depart + " - " + arrive, "New York", notes ],
-        ]) { err in
+        
+        if countryVisited == true{
+            let userData = db.collection("users").document(userID).updateData([
+                // store data like: "countries_to_visit.United State" : [ "date", "cities", "notes" ]
+                // TODO: please enter the information in the list
+                
+                "countries_already_visit" + "." + country : [ depart + " - " + arrive, "New York", notes ],
+            ])
+            { err in
             if let err = err {
                 print("Error updating document: \(err)")
                 let alert = UIAlertController(title: "Error", message: "\(err)", preferredStyle: .alert)
@@ -91,11 +127,35 @@ class addCountryViewController: UIViewController, UISearchBarDelegate {
                 self.present(alert, animated: true)
             } else {
                 print("Document successfully updated")
-                let alert = UIAlertController(title: "Success", message: "Travel plan successfully added", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Success", message: "Travel plan for country already visited successfully added", preferredStyle: .alert)
             
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alert, animated: true)
             }
+        }
+        }
+        else {
+            let userData = db.collection("users").document(userID).updateData([
+                // store data like: "countries_to_visit.United State" : [ "date", "cities", "notes" ]
+                // TODO: please enter the information in the list
+                
+                "countries_to_visit" + "." + country : [ depart + " - " + arrive, "New York", notes ],
+            ])
+            { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+                let alert = UIAlertController(title: "Error", message: "\(err)", preferredStyle: .alert)
+            
+                alert.addAction(UIAlertAction(title: "Dismissed", style: .default, handler: nil))
+                self.present(alert, animated: true)
+            } else {
+                print("Document successfully updated")
+                let alert = UIAlertController(title: "Success", message: "Travel plan for future country to visit successfully added", preferredStyle: .alert)
+            
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true)
+            }
+        }
         }
         
         
