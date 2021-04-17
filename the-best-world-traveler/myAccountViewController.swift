@@ -6,13 +6,64 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+
+let db = Firestore.firestore()
+
 
 class myAccountViewController: UIViewController {
 
+    @IBOutlet weak var error: UILabel!
+    @IBOutlet weak var name: UITextField!
+    
+    var tempName: String = ""
+    var tempError: String = ""
+    
+    @IBAction func changeName(_ sender: Any) {
+        
+        // if either email or password is empty, ask for entering
+        if name.text?.count ?? 0 <= 1{
+            error.text = "Please enter a name."
+        }
+        else{
+            let userID : String = (Auth.auth().currentUser?.uid)!
+        
+            let ref = db.collection("users").document(userID)
+            ref.updateData([
+            "nickname": name.text ?? "Jane Doe"
+            ])
+            error.text = "Name successfully changed!"
+        }
+    }
+    
+    func fetchNickname() {
+        // get user ID to store the data
+        let userID : String = (Auth.auth().currentUser?.uid)!
+        
+        let userData = db.collection("users").document(userID)
+        userData.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                print("MapView: Document data: \(dataDescription)")
+                
+                 let nickname: String = document.get("nickname") as! String
+                self.name.text = nickname
+            } else {
+                print("Document does not exist")
+            }
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        name.text = tempName
+        error.text = tempError
+        
+        self.fetchNickname()
 
-        // Do any additional setup after loading the view.
     }
     
 
