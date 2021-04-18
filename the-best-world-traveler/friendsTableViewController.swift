@@ -11,7 +11,7 @@ import FirebaseAuth
 
 class friendsTableViewController: UITableViewController, UISearchBarDelegate {
 
-    var friends : [ String ] = ["jackie", "chen"]
+    var friends : [ String ] = [ ]
 
     var filteredData: [String] = []
     var friends_countries_to_visit : [[String:[String]]] = [[:]]
@@ -35,12 +35,14 @@ class friendsTableViewController: UITableViewController, UISearchBarDelegate {
             } else {
                 for document in querySnapshot!.documents {
                     // print("\(document.documentID) => \(document.data())")
+                    
                     self.friends.append( document.get("email") as? String ?? "" )
+                    
                     self.friends_countries_to_visit.append( document.get("countries_to_visit") as? [String:[String]] ?? [:] )
                     self.friends_countries_visited.append( document.get("countries_already_visit") as? [String:[String]] ?? [:] )
                 }
                 print("DEBUG")
-                print(self.friends_countries_to_visit)
+                print(self.friends)
             }
         }
         
@@ -143,11 +145,18 @@ class friendsTableViewController: UITableViewController, UISearchBarDelegate {
         
         // send the friend data picked by the user to the map view
         let selectRow = tableView.indexPathForSelectedRow?.row
-        let destViewController: friendsMapViewController = segue.destination as! friendsMapViewController
+        let select_email: String = filteredData[selectRow!]
         
+        print("The selected email = " + String(select_email))
+        
+        let select_index: Int = friends.firstIndex(where: {$0 == select_email}) ?? 0
+        
+        let destViewController: friendsMapViewController = segue.destination as! friendsMapViewController
+        //print(select_index)
         destViewController.trip = ["Canada", "United States"]
-        destViewController.friend_email = self.filteredData[selectRow!]
-        destViewController.countries_to_visit = self.friends_countries_to_visit[selectRow!]
-        destViewController.countries_visited = self.friends_countries_visited[selectRow!]
+        destViewController.friend_email = self.friends[select_index]
+        destViewController.countries_to_visit = self.friends_countries_to_visit[select_index]
+        destViewController.countries_visited = self.friends_countries_visited[select_index]
+        //print(self.friends_countries_to_visit[select_index])
     }
 }
