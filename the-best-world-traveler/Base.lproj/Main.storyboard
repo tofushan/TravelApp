@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3Co-eY-vna">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hUW-in-Ceu">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -779,7 +779,7 @@
                             <outlet property="delegate" destination="hUW-in-Ceu" id="kPz-5G-4aw"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Friends" id="FbK-FP-POs"/>
+                    <tabBarItem key="tabBarItem" title="Friends" image="person.3.fill" catalog="system" id="FbK-FP-POs"/>
                     <connections>
                         <outlet property="searchBar" destination="nmu-Rg-Lab" id="MCh-mn-JZa"/>
                     </connections>
@@ -1083,6 +1083,7 @@
     <resources>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="map" catalog="system" width="128" height="110"/>
+        <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
