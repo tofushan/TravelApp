@@ -11,7 +11,7 @@ import FirebaseAuth
 
 class friendsTableViewController: UITableViewController, UISearchBarDelegate {
 
-    let friends : [ String ] = ["Jackie", "Chen"]
+    var friends : [ String ] = ["jackie", "chen"]
 
     var filteredData: [String] = []
     
@@ -34,10 +34,10 @@ class friendsTableViewController: UITableViewController, UISearchBarDelegate {
             } else {
                 for document in querySnapshot!.documents {
                     // print("\(document.documentID) => \(document.data())")
-                    self.filteredData.append( document.get("email") as? String ?? "" )
+                    self.friends.append( document.get("email") as? String ?? "" )
                 }
             }
-            print(self.filteredData)
+            print(self.friends)
     }
         
         //filteredData = friends
@@ -68,19 +68,31 @@ class friendsTableViewController: UITableViewController, UISearchBarDelegate {
         return cell
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            // When there is no text, filteredData is the same as the original data
-            // When user has entered text into the search box
-            // Use the filter method to iterate over all items in the data array
-            // For each item, return true if the item should be included and false if the
-            // item should NOT be included
-            // filteredData = []
-            filteredData = searchText.isEmpty ? filteredData : friends.filter { (item: String) -> Bool in
-                // If dataItem matches the searchText, return true to include it
-                return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-            }
-            
-            tableView.reloadData()
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//            // When there is no text, filteredData is the same as the original data
+//            // When user has entered text into the search box
+//            // Use the filter method to iterate over all items in the data array
+//            // For each item, return true if the item should be included and false if the
+//            // item should NOT be included
+//            filteredData = []
+//            filteredData = searchText.isEmpty ? filteredData : friends.filter { (item: String) -> Bool in
+//                // If dataItem matches the searchText, return true to include it
+//                return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+//            }
+//
+//            tableView.reloadData()
+//    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        dismiss(animated: true, completion: nil)
+        filteredData = []
+        filteredData = searchBar.text!.isEmpty ? filteredData : friends.filter { (item: String) -> Bool in
+            // If dataItem matches the searchText, return true to include it
+            return item.range(of: searchBar.text!.lowercased(), options: .regularExpression, range: nil, locale: nil) != nil
+        }
+        
+        tableView.reloadData()
     }
 
     /*
@@ -117,7 +129,6 @@ class friendsTableViewController: UITableViewController, UISearchBarDelegate {
         return true
     }
     */
-
     
     // MARK: - Navigation
 
