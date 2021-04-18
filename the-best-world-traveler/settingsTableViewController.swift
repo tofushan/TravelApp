@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class settingsTableViewController: UITableViewController {
 
-    var settings: [String] = ["My Account", "My Trips", "Security & Privacy", "Help", "About Us"]
+    var settings: [String] = ["My Account", "Trips Planned", "Trips Completed", "Security & Privacy", "Help", "About Us", "Log out"]
     
     
     
@@ -57,13 +59,26 @@ class settingsTableViewController: UITableViewController {
             self.performSegue(withIdentifier: "myTripsView", sender: self)
         }
         else if indexPath.row == 2 {
-            self.performSegue(withIdentifier: "securityAndPrivacyView", sender: self)
+            self.performSegue(withIdentifier: "myTripsView", sender: self)
         }
         else if indexPath.row == 3 {
-            self.performSegue(withIdentifier: "helpView", sender: self)
+            self.performSegue(withIdentifier: "securityAndPrivacyView", sender: self)
         }
         else if indexPath.row == 4 {
+            self.performSegue(withIdentifier: "helpView", sender: self)
+        }
+        else if indexPath.row == 5 {
             self.performSegue(withIdentifier: "aboutView", sender: self)
+        }
+        else if indexPath.row == 6 {
+            do {
+                // sign out and go back to root page (login page)
+                try Auth.auth().signOut()
+                self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+            }
+            catch {
+                print("Cannot logout!")
+            }
         }
     }
     
@@ -114,16 +129,19 @@ class settingsTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
+     //MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+     //In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+//         Get the new view controller using segue.destination.
+//         Pass the selected object to the new view controller.
+        let selectedRowIndex = self.tableView.indexPathForSelectedRow![1]
+        if 1 ... 2 ~= selectedRowIndex {
+            let destVC = segue.destination as! MyTripsTableViewController
+            destVC.row = selectedRowIndex
+        }
+    
     }
-    */
-
 }
 
 /*
