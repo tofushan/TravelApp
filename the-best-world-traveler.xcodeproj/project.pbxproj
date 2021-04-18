@@ -31,6 +31,8 @@
 		8BD84D4A260D30D2002EBBFE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BD84D49260D30D2002EBBFE /* GoogleService-Info.plist */; };
 		8BF98DEE260F76540067F5C3 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF98DED260F76540067F5C3 /* LoginVC.swift */; };
 		8BF98DF1260F8EF00067F5C3 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF98DF0260F8EF00067F5C3 /* SignupVC.swift */; };
+		EF38A39E262CAD72004EA8ED /* friendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF38A39D262CAD72004EA8ED /* friendsTableViewController.swift */; };
+		EF38A3A1262CB30B004EA8ED /* friendsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF38A3A0262CB30B004EA8ED /* friendsMapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		8BF98DED260F76540067F5C3 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		8BF98DF0260F8EF00067F5C3 /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
 		BB9F6DB7A3D4224A1DC66CB8 /* Pods-the-best-world-traveler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-the-best-world-traveler.release.xcconfig"; path = "Target Support Files/Pods-the-best-world-traveler/Pods-the-best-world-traveler.release.xcconfig"; sourceTree = "<group>"; };
+		EF38A39D262CAD72004EA8ED /* friendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friendsTableViewController.swift; sourceTree = "<group>"; };
+		EF38A3A0262CB30B004EA8ED /* friendsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friendsMapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 				8BD84D1C260D2DB4002EBBFE /* AppDelegate.swift */,
 				8BD84D1E260D2DB4002EBBFE /* SceneDelegate.swift */,
 				8BD84D22260D2DB5002EBBFE /* Main.storyboard */,
+				EF38A39D262CAD72004EA8ED /* friendsTableViewController.swift */,
+				EF38A3A0262CB30B004EA8ED /* friendsMapViewController.swift */,
 				8B70C27B2628F25A006DFAD3 /* SecurityVC.swift */,
 				8BCF93732626734C00016031 /* MyTripsTableViewController.swift */,
 				1E9DCEBD262275660047F7AA /* myAccountViewController.swift */,
@@ -262,7 +268,9 @@
 				14BABCA0261A844300B2BEF1 /* addedCityTableViewCell.swift in Sources */,
 				1E9DCE5F261CDBFF0047F7AA /* settingsTableViewController.swift in Sources */,
 				8BF98DF1260F8EF00067F5C3 /* SignupVC.swift in Sources */,
+				EF38A3A1262CB30B004EA8ED /* friendsMapViewController.swift in Sources */,
 				8BD84D21260D2DB4002EBBFE /* ViewController.swift in Sources */,
+				EF38A39E262CAD72004EA8ED /* friendsTableViewController.swift in Sources */,
 				1E9DCEBE262275660047F7AA /* myAccountViewController.swift in Sources */,
 				8B70C27C2628F25A006DFAD3 /* SecurityVC.swift in Sources */,
 				1449764F2613C2F300034321 /* searchBarViewController.swift in Sources */,
