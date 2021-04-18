@@ -14,8 +14,8 @@ class friendsTableViewController: UITableViewController, UISearchBarDelegate {
     var friends : [ String ] = [ ]
 
     var filteredData: [String] = []
-    var friends_countries_to_visit : [[String:[String]]] = [[:]]
-    var friends_countries_visited : [[String:[String]]] = [[:]]
+    var friends_countries_to_visit : [[String:[String]]] = []
+    var friends_countries_visited : [[String:[String]]] = []
     
 
     
@@ -42,7 +42,7 @@ class friendsTableViewController: UITableViewController, UISearchBarDelegate {
                     self.friends_countries_visited.append( document.get("countries_already_visit") as? [String:[String]] ?? [:] )
                 }
                 print("DEBUG")
-                print(self.friends)
+                print(self.friends_countries_to_visit)
             }
         }
         
@@ -152,11 +152,12 @@ class friendsTableViewController: UITableViewController, UISearchBarDelegate {
         let select_index: Int = friends.firstIndex(where: {$0 == select_email}) ?? 0
         
         let destViewController: friendsMapViewController = segue.destination as! friendsMapViewController
-        //print(select_index)
+        print(select_index)
         destViewController.trip = ["Canada", "United States"]
         destViewController.friend_email = self.friends[select_index]
+        print(self.friends[select_index])
         destViewController.countries_to_visit = self.friends_countries_to_visit[select_index]
         destViewController.countries_visited = self.friends_countries_visited[select_index]
-        //print(self.friends_countries_to_visit[select_index])
+        print(self.friends_countries_to_visit[select_index])
     }
 }

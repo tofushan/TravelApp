@@ -12,11 +12,13 @@ class friendsMapViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     
-    var friend_email: String = ""
-    var countries_to_visit: [String:[String]] = [ : ]
-    var countries_visited: [String:[String]] = [ : ]
+    var friend_email: String!
+    var countries_to_visit: [String:[String]]?!
+    var countries_visited: [String:[String]]?!
     
     var trip: [String]!
+    var dictionary: [Int: Int] = [:]
+    var category: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +27,17 @@ class friendsMapViewController: UIViewController, MKMapViewDelegate {
         // Do any additional setup after loading the view.
     }
     
-    private func search(using searchRequest: MKLocalSearch.Request) {
+    internal func getFlag(from countryCode: String) -> String {
+
+        return countryCode
+            .unicodeScalars
+            .map({ 127397 + $0.value })
+            .compactMap(UnicodeScalar.init)
+            .map(String.init)
+            .joined()
+    }
+    
+    private func search(using searchRequest: MKLocalSearch.Request, cat: Int) {
         let search = MKLocalSearch(request: searchRequest)
         search.start { (response, error) in
             guard let response = response else {
@@ -49,6 +61,7 @@ class friendsMapViewController: UIViewController, MKMapViewDelegate {
                         //self.mapView.removeAnnotations(self.mapView.self.annotations)
 
                         let annotation = MKPointAnnotation()
+                        self.dictionary[annotation.hash] = cat
                         annotation.coordinate = location.coordinate
                         annotation.title = name
                         annotation.subtitle = "I visited \(name) on (date)"
@@ -59,21 +72,73 @@ class friendsMapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+
+        
+        let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: annotation.title!!)
+//        let redValue = CGFloat.random(in: 0...1)
+//        let greenValue = CGFloat.random(in: 0...1)
+//        let blueValue = CGFloat.random(in: 0...1)
+//        annotationView.markerTintColor = UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: 1.0)
+        if (self.dictionary[annotation.hash] == 0) {
+            annotationView.markerTintColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.5)
+        } else {
+            annotationView.markerTintColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.5)
+
+        }
+                
+        let locale = Locale(identifier: "en_US")
+        let countryCode = locale.countryCode(by: annotation.title!!)
+        annotationView.glyphText = getFlag(from: countryCode ?? "US")
+        
+        // detail button on right side of the callout
+        let btn = UIButton(type: .detailDisclosure)
+        annotationView.canShowCallout = true
+        annotationView.rightCalloutAccessoryView = btn
+        
+        // flag on left side of the callout
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 30, height: 20))
+        label.text = getFlag(from: countryCode ?? "US")
+        annotationView.leftCalloutAccessoryView = label
+        // detail callout
+        //annotationView.detailCalloutAccessoryView = UIImageView(image: #imageLiteral(resourceName: "plane.png"))
+        
+        return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        let annotation = view.annotation
+        
+        let locale = Locale(identifier: "en_US")
+        let countryCode = locale.countryCode(by: (annotation?.title!!)!)
+        
+        
+        let placeName = annotation?.title
+        let placeInfo = getFlag(from: countryCode ?? "US") + (annotation?.subtitle)!!
+
+        let ac = UIAlertController(title: placeName!!, message: placeInfo, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
+    }
+    
     private func displayAnnotations() {
-        // add countries to visit, change the color to yellow
+        // add countries to visit
+        self.category = 0
+        self.trip = Array(self.countries_to_visit!.keys)
         for country in trip {
             let searchRequest = MKLocalSearch.Request()
             searchRequest.naturalLanguageQuery = country
-            search(using: searchRequest)
+            search(using: searchRequest, cat:0)
         }
         // add countries visited, change the color to blue
-//        self.category = 1
-//        let visited: [String] = Array(self.countries_visited.keys)
-//        for country in visited {
-//            let searchRequest = MKLocalSearch.Request()
-//            searchRequest.naturalLanguageQuery = country
-//            search(using: searchRequest)
-//        }
+        self.category = 1
+        self.trip = Array(self.countries_visited!.keys)
+        for country in trip {
+            let searchRequest = MKLocalSearch.Request()
+            searchRequest.naturalLanguageQuery = country
+            search(using: searchRequest, cat:1)
+        }
     }
 
     /*
