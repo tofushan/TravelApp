@@ -40,21 +40,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCV-7P-Por">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCV-7P-Por">
                                 <rect key="frame" x="46" y="387" width="76" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="4in-hN-PjK"/>
-                                    <constraint firstAttribute="width" constant="66" id="Mgo-9f-1fs"/>
+                                    <constraint firstAttribute="width" constant="76" id="Mgo-9f-1fs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Qk-29-2a9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Qk-29-2a9">
                                 <rect key="frame" x="35" y="434" width="98" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="8lW-fv-zSh"/>
-                                    <constraint firstAttribute="width" constant="87" id="ayL-F9-neq"/>
+                                    <constraint firstAttribute="width" constant="98" id="ayL-F9-neq"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="18"/>
                                 <nil key="textColor"/>
@@ -78,18 +78,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJ6-hN-e6N">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJ6-hN-e6N">
                                 <rect key="frame" x="172" y="563" width="71" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 <state key="normal" title="Log in "/>
                                 <connections>
                                     <action selector="actionLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QV4-xf-Oaa"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qP9-3c-1CS">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qP9-3c-1CS">
                                 <rect key="frame" x="165" y="603" width="71" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 <state key="normal" title="Sign up"/>
                                 <connections>
@@ -114,13 +112,17 @@
                             <constraint firstItem="5Qk-29-2a9" firstAttribute="top" secondItem="KCV-7P-Por" secondAttribute="bottom" constant="26" id="5eo-RH-xli"/>
                             <constraint firstItem="KCV-7P-Por" firstAttribute="top" secondItem="ir5-1k-s5q" secondAttribute="bottom" constant="123.5" id="70x-fn-DtW"/>
                             <constraint firstItem="JmH-g2-dWl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="8b3-bd-6xN"/>
-                            <constraint firstItem="5Qk-29-2a9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46" id="DeK-M6-i5H"/>
+                            <constraint firstItem="5Qk-29-2a9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="DeK-M6-i5H"/>
+                            <constraint firstItem="CJ6-hN-e6N" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="EQ7-xi-UEs"/>
                             <constraint firstItem="JmH-g2-dWl" firstAttribute="top" secondItem="1dM-X0-qJ0" secondAttribute="bottom" constant="19" id="GoD-it-IJ3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qP9-3c-1CS" secondAttribute="bottom" constant="225" id="NYU-f0-3MQ"/>
                             <constraint firstItem="1dM-X0-qJ0" firstAttribute="top" secondItem="ir5-1k-s5q" secondAttribute="bottom" constant="163.5" id="NgE-Nz-8Bh"/>
+                            <constraint firstItem="qP9-3c-1CS" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Qm7-2a-p1G"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xo3-Rg-2xQ" secondAttribute="trailing" constant="45" id="R05-PT-Yaa"/>
+                            <constraint firstItem="qP9-3c-1CS" firstAttribute="top" secondItem="CJ6-hN-e6N" secondAttribute="bottom" constant="6" id="dH3-2M-qPY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JmH-g2-dWl" secondAttribute="trailing" constant="23" id="dbh-Va-onj"/>
-                            <constraint firstItem="KCV-7P-Por" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="gie-kc-EB4"/>
-                            <constraint firstItem="Xo3-Rg-2xQ" firstAttribute="leading" secondItem="KCV-7P-Por" secondAttribute="trailing" constant="18" id="hgs-rZ-buM"/>
+                            <constraint firstItem="KCV-7P-Por" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46" id="gie-kc-EB4"/>
+                            <constraint firstItem="Xo3-Rg-2xQ" firstAttribute="leading" secondItem="KCV-7P-Por" secondAttribute="trailing" constant="29" id="hgs-rZ-buM"/>
                             <constraint firstItem="Xo3-Rg-2xQ" firstAttribute="top" secondItem="ir5-1k-s5q" secondAttribute="bottom" constant="116.5" id="j7A-G2-VYh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1dM-X0-qJ0" secondAttribute="trailing" constant="45" id="o4e-h3-KSW"/>
                             <constraint firstItem="1dM-X0-qJ0" firstAttribute="leading" secondItem="5Qk-29-2a9" secondAttribute="trailing" constant="18" id="srW-cN-kaT"/>
@@ -147,8 +149,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Xf-jj-oxk">
-                                <rect key="frame" x="70" y="356" width="275" height="50"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Xf-jj-oxk">
+                                <rect key="frame" x="69.5" y="355.5" width="275" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="TGb-po-Dtr"/>
                                     <constraint firstAttribute="width" constant="275" id="phi-AX-ZwP"/>
@@ -157,7 +159,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dwf-KB-3rK">
-                                <rect key="frame" x="69.5" y="429" width="275" height="50"/>
+                                <rect key="frame" x="69.5" y="435.5" width="275" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="mpC-Cx-wWF"/>
                                     <constraint firstAttribute="width" constant="275" id="tgl-31-ras"/>
@@ -166,7 +168,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PE5-ZO-Qwv">
-                                <rect key="frame" x="69.5" y="509" width="275" height="50"/>
+                                <rect key="frame" x="69.5" y="515.5" width="275" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="275" id="5mE-fm-BQt"/>
                                     <constraint firstAttribute="height" constant="50" id="OGW-hp-OjN"/>
@@ -175,7 +177,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error_messages" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65N-fX-LQQ">
-                                <rect key="frame" x="21.5" y="599" width="371" height="13.5"/>
+                                <rect key="frame" x="21.5" y="605.5" width="371" height="13.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="371" id="1tJ-jq-OLF"/>
                                 </constraints>
@@ -184,27 +186,27 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2L-9J-9Ji">
-                                <rect key="frame" x="36" y="40" width="143.5" height="44.5"/>
-                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="40"/>
+                                <rect key="frame" x="36" y="40" width="166" height="51"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FTV-EZ-tcP">
-                                <rect key="frame" x="127" y="137" width="160" height="160"/>
+                                <rect key="frame" x="127" y="143.5" width="160" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="0FX-bw-r2l"/>
                                     <constraint firstAttribute="height" constant="160" id="zkG-T9-wme"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Auc-7D-ibo">
-                                <rect key="frame" x="117" y="640" width="180" height="40"/>
+                                <rect key="frame" x="117" y="646.5" width="180" height="40"/>
                                 <color key="backgroundColor" systemColor="labelColor"/>
                                 <rect key="contentStretch" x="0.050000000000000003" y="0.0" width="1" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="61b-ff-uvb"/>
                                     <constraint firstAttribute="height" constant="40" id="G3b-xY-7Pu"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="18"/>
                                 <state key="normal" title="Create Account">
                                     <color key="titleColor" red="0.98206730720000002" green="1" blue="0.98925102399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -263,11 +265,11 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="settingTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lg9-Ce-oQe">
-                                            <rect key="frame" x="26" y="39" width="350" height="22.5"/>
+                                            <rect key="frame" x="26" y="37.5" width="350" height="25.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="350" id="ybp-G4-8D9"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
+                                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -322,7 +324,7 @@
                                     <constraint firstAttribute="width" constant="180" id="Yca-Dt-xor"/>
                                     <constraint firstAttribute="height" constant="40" id="aHC-vO-JWh"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
                                 <state key="normal" title="Save Avatar">
                                     <color key="titleColor" red="0.98206730720000002" green="1" blue="0.98925102399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -337,7 +339,7 @@
                                     <constraint firstAttribute="width" constant="180" id="AQo-ZJ-dbL"/>
                                     <constraint firstAttribute="height" constant="40" id="Clw-iF-WzB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
                                 <state key="normal" title="Save Name">
                                     <color key="titleColor" red="0.98206730720000002" green="1" blue="0.98925102399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -351,7 +353,7 @@
                                     <constraint firstAttribute="height" constant="100" id="6z1-YM-g3C"/>
                                     <constraint firstAttribute="width" constant="280" id="b0O-ng-N3x"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="40"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="38"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -361,7 +363,7 @@
                                     <constraint firstAttribute="height" constant="50" id="b3s-hV-l0m"/>
                                     <constraint firstAttribute="width" constant="275" id="cxA-1l-Mmq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9c-Oq-c12">
@@ -482,7 +484,7 @@
                                     <constraint firstAttribute="width" constant="85" id="34V-ep-3xU"/>
                                     <constraint firstAttribute="height" constant="31" id="Yuu-uA-KfN"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -492,7 +494,7 @@
                                     <constraint firstAttribute="width" constant="85" id="hnV-xZ-F18"/>
                                     <constraint firstAttribute="height" constant="31" id="rPF-HF-hxT"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -509,7 +511,7 @@
                                 <rect key="frame" x="20" y="541" width="374" height="186"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Trip Notes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFW-kZ-pfC">
@@ -517,7 +519,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="ZOb-b4-MmM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -527,7 +529,7 @@
                                     <constraint firstAttribute="width" constant="120" id="bFO-lO-kgh"/>
                                     <constraint firstAttribute="height" constant="26" id="fCb-pz-SLU"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
                                 <state key="normal" title="Visited">
                                     <color key="titleColor" name="AccentColor"/>
                                 </state>
@@ -535,13 +537,13 @@
                                     <action selector="clickVisited:" destination="muw-tO-Pj9" eventType="touchUpInside" id="5Uw-k7-jRx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yR0-CO-4US">
-                                <rect key="frame" x="220" y="702" width="120" height="26"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yR0-CO-4US">
+                                <rect key="frame" x="202" y="702" width="138" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="AR5-Aa-Kkt"/>
                                     <constraint firstAttribute="width" constant="120" id="hrH-5s-iYf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
                                 <state key="normal" title="Want to visit!">
                                     <color key="titleColor" name="AccentColor"/>
                                 </state>
@@ -618,7 +620,7 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coq-ul-QcL">
                                             <rect key="frame" x="20" y="11" width="374" height="21"/>
-                                            <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -978,23 +980,23 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyTripsCell" textLabel="1Fo-n2-SiG" detailTextLabel="ZqA-8S-Qha" style="IBUITableViewCellStyleSubtitle" id="laV-wi-3Da">
-                                <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="51.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="MyTripsCell" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="laV-wi-3Da" id="1Uj-A9-FC5">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="51.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Fo-n2-SiG">
-                                            <rect key="frame" x="20" y="11" width="33.5" height="19"/>
+                                            <rect key="frame" x="20" y="8" width="45" height="21.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZqA-8S-Qha">
-                                            <rect key="frame" x="20" y="31" width="41" height="13.5"/>
+                                            <rect key="frame" x="20" y="29.5" width="49.5" height="15.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="12"/>
+                                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
