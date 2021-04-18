@@ -159,7 +159,8 @@ class addCountryViewController: UIViewController, UISearchBarDelegate {
         }
         }
         
-        
+        self.dismiss(animated: true, completion: nil)
+
         
     }
     
