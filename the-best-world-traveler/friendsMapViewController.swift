@@ -12,6 +12,10 @@ class friendsMapViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     
+    var friend_email: String = ""
+    var countries_to_visit: [String:[String]] = [ : ]
+    var countries_visited: [String:[String]] = [ : ]
+    
     var trip: [String]!
     
     override func viewDidLoad() {

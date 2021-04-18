@@ -14,8 +14,9 @@ class friendsTableViewController: UITableViewController, UISearchBarDelegate {
     var friends : [ String ] = ["jackie", "chen"]
 
     var filteredData: [String] = []
+    var friends_countries_to_visit : [[String:[String]]] = [[:]]
+    var friends_countries_visited : [[String:[String]]] = [[:]]
     
-
 
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -35,10 +36,13 @@ class friendsTableViewController: UITableViewController, UISearchBarDelegate {
                 for document in querySnapshot!.documents {
                     // print("\(document.documentID) => \(document.data())")
                     self.friends.append( document.get("email") as? String ?? "" )
+                    self.friends_countries_to_visit.append( document.get("countries_to_visit") as? [String:[String]] ?? [:] )
+                    self.friends_countries_visited.append( document.get("countries_already_visit") as? [String:[String]] ?? [:] )
                 }
+                print("DEBUG")
+                print(self.friends_countries_to_visit)
             }
-            print(self.friends)
-    }
+        }
         
         //filteredData = friends
         // Uncomment the following line to preserve selection between presentations
@@ -136,9 +140,14 @@ class friendsTableViewController: UITableViewController, UISearchBarDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        // send the friend data picked by the user to the map view
+        let selectRow = tableView.indexPathForSelectedRow?.row
         let destViewController: friendsMapViewController = segue.destination as! friendsMapViewController
+        
         destViewController.trip = ["Canada", "United States"]
+        destViewController.friend_email = self.filteredData[selectRow!]
+        destViewController.countries_to_visit = self.friends_countries_to_visit[selectRow!]
+        destViewController.countries_visited = self.friends_countries_visited[selectRow!]
     }
-    
-
 }
