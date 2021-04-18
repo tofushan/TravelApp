@@ -60,6 +60,7 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
                 // let nickname: String = document.get("nickname") as! String
                 
                 self.countries_to_visit = document.get("countries_to_visit") as? [String:[String]] ?? [:]
+                self.countries_visited = document.get("countries_already_visit") as? [String:[String]] ?? [:]
                 
                 self.displayAnnotations()
             } else {
