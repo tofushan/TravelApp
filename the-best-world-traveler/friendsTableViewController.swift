@@ -10,7 +10,8 @@ import UIKit
 class friendsTableViewController: UITableViewController, UISearchBarDelegate {
 
     let friends : [ String ] = ["Jackie", "Chen"]
-    var filteredData: [String]!
+
+    var filteredData: [String] = []
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -18,7 +19,8 @@ class friendsTableViewController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
 
         searchBar.delegate = self
-        filteredData = friends
+
+        //filteredData = friends
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -52,7 +54,8 @@ class friendsTableViewController: UITableViewController, UISearchBarDelegate {
             // Use the filter method to iterate over all items in the data array
             // For each item, return true if the item should be included and false if the
             // item should NOT be included
-            filteredData = searchText.isEmpty ? friends : friends.filter { (item: String) -> Bool in
+            filteredData = []
+            filteredData = searchText.isEmpty ? filteredData : friends.filter { (item: String) -> Bool in
                 // If dataItem matches the searchText, return true to include it
                 return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
             }
