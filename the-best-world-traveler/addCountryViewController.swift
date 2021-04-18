@@ -3,7 +3,7 @@
 //  the-best-world-traveler
 //
 //  Created by Jaylyn Barbee on 4/4/21.
-//  Edited by Christina on 4/17/21.
+//  Edited by Christina Le on 4/17/21.
 
 import UIKit
 import Firebase
