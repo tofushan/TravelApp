@@ -22,6 +22,8 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
     let db = Firestore.firestore()
     var dictionary: [Int: Int] = [:]
     var category: Int = 0
+    
+    
     /*
      This block of code fetch user data
      */
@@ -36,9 +38,10 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
         print("map view did load!")
         mapView.delegate = self
         searchBar.delegate = self
-
+        self.displayHome()
         self.fetchTripsFromUser()
         super.viewDidLoad()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -114,7 +117,11 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
                     let location = item.placemark.location {
                         print("\(name): \(location.coordinate.latitude),\(location.coordinate.longitude)")
                         //self.mapView.removeAnnotations(self.mapView.self.annotations)
-
+                        let coordinate_1 = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+                        let coordinate_2 = CLLocationCoordinate2D(latitude: 35.994, longitude: -78.8986)
+                        var coordinates_1 = [coordinate_1, coordinate_2]
+                        let myPolyLine_1: MKPolyline = MKPolyline(coordinates: &coordinates_1, count: coordinates_1.count)
+                        self.mapView.addOverlay(myPolyLine_1)
                     
                         let span = MKCoordinateSpan(latitudeDelta: 60, longitudeDelta: 60)
                         let region = MKCoordinateRegion(center: location.coordinate, span: span)
@@ -130,20 +137,36 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
                         self.dictionary[annotation.hash] = cat
                         annotation.subtitle = "I visited \(name) on (date)"
                         self.mapView.addAnnotation(annotation)
-                    
                 }
             }
         }
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        // Generate renderer.
+        let myPolyLineRendere: MKPolylineRenderer = MKPolylineRenderer(overlay: overlay)
+        
+        // Specify the thickness of the line.
+        myPolyLineRendere.lineWidth = 2
+        
+        // Specify the color of the line.
+        let redValue = CGFloat.random(in: 0...1)
+        let greenValue = CGFloat.random(in: 0...1)
+        let blueValue = CGFloat.random(in: 0...1)
+        myPolyLineRendere.strokeColor = UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: 0.7)
+                
+        return myPolyLineRendere
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 
         
         let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: annotation.title!!)
-//        let redValue = CGFloat.random(in: 0...1)
-//        let greenValue = CGFloat.random(in: 0...1)
-//        let blueValue = CGFloat.random(in: 0...1)
-//        annotationView.markerTintColor = UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: 1.0)
+        if (self.dictionary[annotation.hash] == 3) {
+            annotationView.markerTintColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.9)
+            annotationView.glyphImage = UIImage(named: "duke")
+            return annotationView
+        }
         if (self.dictionary[annotation.hash] == 0) {
             annotationView.markerTintColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.5)
         } else if (self.dictionary[annotation.hash] == 1){
@@ -203,6 +226,16 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
             searchRequest.naturalLanguageQuery = country
             search(using: searchRequest, cat:1)
         }
+    }
+    
+    private func displayHome() {
+        let coordinate = CLLocationCoordinate2D(latitude: 35.994, longitude: -78.8986)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        annotation.title = "Duke"
+        self.dictionary[annotation.hash] = 3
+        annotation.subtitle = "Let's Go, Duke!"
+        self.mapView.addAnnotation(annotation)
     }
     
 }
