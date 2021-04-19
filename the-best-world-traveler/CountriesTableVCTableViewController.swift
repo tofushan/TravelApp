@@ -110,7 +110,7 @@ class CountriesTableVCTableViewController: UITableViewController, UISearchBarDel
         let cvc = nav.topViewController as! addCountryViewController
         
         if let indexPath = tableView.indexPathForSelectedRow{
-            cvc.country = countries[indexPath.row]
+            cvc.country = filteredData[indexPath.row]
         }
     }
     

@@ -48,7 +48,7 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
     private func fetchTripsFromUser() {
         // get user ID to store the data
         let userID : String = (Auth.auth().currentUser?.uid)!
-        
+        print("userID: \(userID)")
         let userData = db.collection("users").document(userID)
         userData.getDocument { (document, error) in
             if let document = document, document.exists {
@@ -60,6 +60,7 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
                 // let nickname: String = document.get("nickname") as! String
                 
                 self.countries_to_visit = document.get("countries_to_visit") as? [String:[String]] ?? [:]
+                self.countries_visited = document.get("countries_already_visit") as? [String:[String]] ?? [:]
                 
                 self.displayAnnotations()
             } else {
@@ -97,10 +98,10 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
         dismiss(animated: true, completion: nil)
         let searchRequest = MKLocalSearch.Request()
         searchRequest.naturalLanguageQuery = searchBar.text
-        search(using: searchRequest)
+        search(using: searchRequest, cat:3)
     }
     
-    private func search(using searchRequest: MKLocalSearch.Request) {
+    private func search(using searchRequest: MKLocalSearch.Request, cat: Int) {
         let search = MKLocalSearch(request: searchRequest)
         search.start { (response, error) in
             guard let response = response else {
@@ -126,7 +127,7 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
                         let annotation = MKPointAnnotation()
                         annotation.coordinate = location.coordinate
                         annotation.title = name
-                        self.dictionary[annotation.hash] = self.category
+                        self.dictionary[annotation.hash] = cat
                         annotation.subtitle = "I visited \(name) on (date)"
                         self.mapView.addAnnotation(annotation)
                     
@@ -145,9 +146,10 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
 //        annotationView.markerTintColor = UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: 1.0)
         if (self.dictionary[annotation.hash] == 0) {
             annotationView.markerTintColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.5)
-        } else {
+        } else if (self.dictionary[annotation.hash] == 1){
             annotationView.markerTintColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.5)
-
+        } else {
+            annotationView.markerTintColor = UIColor(red: 0, green: 1, blue: 0, alpha: 0.5)
         }
                 
         let locale = Locale(identifier: "en_US")
@@ -187,22 +189,20 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
     
     
     private func displayAnnotations() {
-        // add countries to visit, change the color to yellow
-        self.category = 0
+        // add countries to visit, change the color to red
         let countries: [String] = Array(self.countries_to_visit.keys)
         for country in countries {
             let searchRequest = MKLocalSearch.Request()
             searchRequest.naturalLanguageQuery = country
-            search(using: searchRequest)
+            search(using: searchRequest, cat:0)
         }
-        // add countries visited, change the color to blue
-//        self.category = 1
-//        let visited: [String] = Array(self.countries_visited.keys)
-//        for country in visited {
-//            let searchRequest = MKLocalSearch.Request()
-//            searchRequest.naturalLanguageQuery = country
-//            search(using: searchRequest)
-//        }
+//         add countries visited, change the color to blue
+        let visited: [String] = Array(self.countries_visited.keys)
+        for country in visited {
+            let searchRequest = MKLocalSearch.Request()
+            searchRequest.naturalLanguageQuery = country
+            search(using: searchRequest, cat:1)
+        }
     }
     
 }
