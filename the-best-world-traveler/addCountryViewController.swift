@@ -126,13 +126,47 @@ class addCountryViewController: UIViewController, UISearchBarDelegate {
             
                 alert.addAction(UIAlertAction(title: "Dismissed", style: .default, handler: nil))
                 self.present(alert, animated: true)
-            } else {
-                print("Document successfully updated")
-                let alert = UIAlertController(title: "Success", message: "Travel plan for country already visited successfully added", preferredStyle: .alert)
-            
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alert, animated: true)
             }
+            else {
+                
+                // remove country from to_visit list in the database
+                let docRef = self.db.collection("users").document(userID)
+
+                docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                        
+                    var tmp: [String:[String]] = document.get("countries_to_visit") as? [String:[String]] ?? [:]
+                        
+                    if tmp.keys.contains(self.country) {
+                        tmp[self.country] = nil
+                        self.db.collection("users").document(userID).updateData([
+                            "countries_to_visit": tmp
+                            ]) { err in
+                            if let err = err {
+                                print("Error updating document: \(err)")
+                            } else {
+                                print("Document successfully updated")
+                                let alert = UIAlertController(title: "Success", message: "Travel plan for country already visited successfully added", preferredStyle: .alert)
+                                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+                                    self.dismiss(animated: true, completion: nil)
+                                }))
+                                self.present(alert, animated: true)
+                            }
+                        }
+                    }
+                    else { // if the country is not found in _to_visit list
+                        let alert = UIAlertController(title: "Success", message: "Travel plan for country already visited successfully added but without being noted to be visited first", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+                            self.dismiss(animated: true, completion: nil)
+                        }))
+                        self.present(alert, animated: true)
+                    }
+                }
+                else {
+                    print("Document does not exist")
+                }
+            }
+        }
         }
         }
         else {
@@ -151,15 +185,18 @@ class addCountryViewController: UIViewController, UISearchBarDelegate {
                 self.present(alert, animated: true)
             } else {
                 print("Document successfully updated")
+
                 let alert = UIAlertController(title: "Success", message: "Travel plan for future country to visit successfully added", preferredStyle: .alert)
-            
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+                    self.dismiss(animated: true, completion: nil)
+                }))
                 self.present(alert, animated: true)
+                
             }
         }
         }
         
-        self.dismiss(animated: true, completion: nil)
+        //self.dismiss(animated: true, completion: nil)
 
         
     }
