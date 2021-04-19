@@ -48,7 +48,7 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
     private func fetchTripsFromUser() {
         // get user ID to store the data
         let userID : String = (Auth.auth().currentUser?.uid)!
-        
+        print("userID: \(userID)")
         let userData = db.collection("users").document(userID)
         userData.getDocument { (document, error) in
             if let document = document, document.exists {
