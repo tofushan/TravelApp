@@ -64,7 +64,12 @@ class friendsMapViewController: UIViewController, MKMapViewDelegate {
                         self.dictionary[annotation.hash] = cat
                         annotation.coordinate = location.coordinate
                         annotation.title = name
-                        annotation.subtitle = "I visited \(name) on (date)"
+                        if (cat == 0) {
+                            annotation.subtitle = "\(String(self.friend_email)) plan to visit \(name)"
+                        } else {
+                            annotation.subtitle = "\(String(self.friend_email)) visited \(name)"
+                        }
+                        
                         self.mapView.addAnnotation(annotation)
                     
                 }
