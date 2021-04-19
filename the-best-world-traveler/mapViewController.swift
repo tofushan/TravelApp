@@ -123,9 +123,9 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
                         let myPolyLine_1: MKPolyline = MKPolyline(coordinates: &coordinates_1, count: coordinates_1.count)
                         self.mapView.addOverlay(myPolyLine_1)
                     
-                        let span = MKCoordinateSpan(latitudeDelta: 60, longitudeDelta: 60)
-                        let region = MKCoordinateRegion(center: location.coordinate, span: span)
-                        self.mapView.setRegion(region, animated: true)
+//                        let span = MKCoordinateSpan(latitudeDelta: 60, longitudeDelta: 60)
+//                        let region = MKCoordinateRegion(center: location.coordinate, span: span)
+//                        self.mapView.setRegion(region, animated: true)
                         
                         // clear existing pins
 
@@ -231,6 +231,11 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
     private func displayHome() {
         let coordinate = CLLocationCoordinate2D(latitude: 35.994, longitude: -78.8986)
         let annotation = MKPointAnnotation()
+        
+        let span = MKCoordinateSpan(latitudeDelta: 60, longitudeDelta: 60)
+        let region = MKCoordinateRegion(center: coordinate, span: span)
+        self.mapView.setRegion(region, animated: true)
+        
         annotation.coordinate = coordinate
         annotation.title = "Duke"
         self.dictionary[annotation.hash] = 3
