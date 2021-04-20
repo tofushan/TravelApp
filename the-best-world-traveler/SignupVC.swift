@@ -139,7 +139,8 @@ class SignupVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.init(hue: 0.6, saturation: 0.2, brightness: 1.0, alpha: 1.0)
+//        self.view.backgroundColor = UIColor.init(hue: 0.6, saturation: 0.2, brightness: 1.0, alpha: 1.0)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
         self.setupSignUpButton()
         errors.text = ""
         signupEmail.attributedPlaceholder = emailPlaceholder

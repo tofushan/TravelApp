@@ -1,0 +1,6 @@
+framework module Montserrat {
+  umbrella header "Montserrat-umbrella.h"
+
+  export *
+  module * { export * }
+}
