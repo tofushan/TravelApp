@@ -126,7 +126,36 @@ class MyTripsTableViewController: UITableViewController {
         }
     }
     */
-
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            let countriesList: [String] = Array(self.countries.keys)
+            countries.removeValue(forKey: countriesList[indexPath.row])
+//            weather.remove(at: indexPath.row)
+//            temperatures.remove(at: indexPath.row)
+            if self.row == 1{
+                let userID : String = (Auth.auth().currentUser?.uid)!
+            
+                let ref = db.collection("users").document(userID)
+                ref.updateData([
+                    "countries_to_visit": countries
+                ])
+            }
+            else {
+                let userID : String = (Auth.auth().currentUser?.uid)!
+            
+                let ref = db.collection("users").document(userID)
+                ref.updateData([
+                    "countries_already_visit": countries
+                ])
+            }
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -151,5 +180,22 @@ class MyTripsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        
+        let destVC = segue.destination as! detailTripsViewController
+        
+        let selectRow = tableView.indexPathForSelectedRow?.row
+        
+        let countriesList: [String] = Array(self.countries.keys)
+        
+        destVC.tempDate = countries[countriesList[selectRow!]]![0]
+        destVC.tempCities = countries[countriesList[selectRow!]]![1]
+        destVC.tempNotes = countries[countriesList[selectRow!]]![2]
+        
+    }
+    
 
 }

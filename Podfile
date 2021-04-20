@@ -13,4 +13,6 @@ target 'the-best-world-traveler' do
   pod 'SDWebImage'
   pod 'FirebaseUI/Firestore'
   pod 'FirebaseUI/Storage'
+  pod 'Montserrat'
+  pod 'OpenSans'
 end

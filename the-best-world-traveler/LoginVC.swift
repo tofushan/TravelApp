@@ -14,6 +14,8 @@ class LoginVC: UIViewController {
     
     @IBOutlet weak var inputEmail: UITextField!
     @IBOutlet weak var inputPassword: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
     // these are the paceholders shown in the textfields for guidence
     var emailPlaceholder = NSAttributedString(string: "test@duke.edu", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
     var passwordPlaceholder = NSAttributedString(string: "testapp", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
@@ -43,11 +45,20 @@ class LoginVC: UIViewController {
         }
     }
     
+    func setupButtons(){
+        signUpButton.layer.cornerRadius = 5
+        signUpButton.clipsToBounds = true
+        loginButton.layer.cornerRadius = 5
+        loginButton.clipsToBounds = true
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.setupButtons()
         // setup the background color
-        self.view.backgroundColor = UIColor.init(hue: 0.1, saturation: 0.4, brightness: 1.0, alpha: 1.0)
+//        self.view.backgroundColor = UIColor.init(hue: 0.1, saturation: 0.4, brightness: 1.0, alpha: 1.0)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
         // initialize placeholders and error message
         inputEmail.attributedPlaceholder = emailPlaceholder
         inputPassword.attributedPlaceholder = passwordPlaceholder

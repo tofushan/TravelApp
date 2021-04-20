@@ -137,6 +137,8 @@ class myAccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
+        
         name.text = tempName
         error.text = tempError
         avatar.image = tempAvatar

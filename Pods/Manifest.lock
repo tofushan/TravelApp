@@ -337,11 +337,13 @@ PODS:
   - gRPC-Core/Interface (1.28.2)
   - GTMSessionFetcher/Core (1.5.0)
   - leveldb-library (1.22.1)
+  - Montserrat (1.0.0)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
+  - OpenSans (1.0.3)
   - PromisesObjC (1.2.12)
   - SDWebImage (5.11.0):
     - SDWebImage/Core (= 5.11.0)
@@ -354,6 +356,8 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseUI/Firestore
   - FirebaseUI/Storage
+  - Montserrat
+  - OpenSans
   - SDWebImage
 
 SPEC REPOS:
@@ -376,7 +380,9 @@ SPEC REPOS:
     - gRPC-Core
     - GTMSessionFetcher
     - leveldb-library
+    - Montserrat
     - nanopb
+    - OpenSans
     - PromisesObjC
     - SDWebImage
 
@@ -399,10 +405,12 @@ SPEC CHECKSUMS:
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
+  Montserrat: 05ccfd6f44aadfd81b2bc3655f759099983be06e
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
+  OpenSans: 33078846463eae780aa5f82986b51cce085f970d
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SDWebImage: 7acbb57630ac7db4a495547fb73916ff3e432f6b
 
-PODFILE CHECKSUM: 1fb34746778c759e1aa445ae9804e94044596c3b
+PODFILE CHECKSUM: 247f793cf8e92240955ae7441672f3d307c3c51e
 
 COCOAPODS: 1.10.1
