@@ -246,7 +246,7 @@ class mapViewController: UIViewController, MKMapViewDelegate {
         let coordinate = CLLocationCoordinate2D(latitude: 35.994, longitude: -78.8986)
         let annotation = MKPointAnnotation()
         
-        let span = MKCoordinateSpan(latitudeDelta: 60, longitudeDelta: 60)
+        let span = MKCoordinateSpan(latitudeDelta: 100, longitudeDelta: 100)
         let region = MKCoordinateRegion(center: coordinate, span: span)
         self.mapView.setRegion(region, animated: true)
         
