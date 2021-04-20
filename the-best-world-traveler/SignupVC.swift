@@ -58,11 +58,11 @@ class SignupVC: UIViewController {
         
         // if either email or password is empty, ask for entering
         if signupEmail.text == "" || signupPassword.text == "" || signupNickname.text == "" {
-            errors.text = "Please enter valid email, password and nickname"
+            errors.text = "Please enter valid email, password and name"
         }
-        else if signupNickname.text?.count ?? 0 <= 4 {
-            errors.text = "Please enter a valid nickname more than 4 characters"
-        }
+//        else if signupNickname.text?.count ?? 0 <= 4 {
+//            errors.text = "Please enter a valid nickname more than 4 characters"
+//        }
         else {
             Auth.auth().createUser(withEmail: signupEmail.text!, password: signupPassword.text!, completion: { (result, error) in
                 // print out the error on screen if firebase does not like it
