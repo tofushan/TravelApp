@@ -164,11 +164,11 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
         myPolyLineRendere.lineWidth = 2
         
         // Specify the color of the line.
-        let redValue = CGFloat.random(in: 0...1)
-        let greenValue = CGFloat.random(in: 0...1)
-        let blueValue = CGFloat.random(in: 0...1)
-        myPolyLineRendere.strokeColor = UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: 0.7)
-        
+//        let redValue = CGFloat.random(in: 0...1)
+//        let greenValue = CGFloat.random(in: 0...1)
+//        let blueValue = CGFloat.random(in: 0...1)
+//        myPolyLineRendere.strokeColor = UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: 0.7)
+        myPolyLineRendere.strokeColor = UIColor(red: 0.5, green: 0, blue: 0.5, alpha: 0.8)
         return myPolyLineRendere
     }
     
