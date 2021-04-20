@@ -13,7 +13,7 @@ import GoogleMapsTileOverlay
 
 
 
-class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegate {
+class mapViewController: UIViewController, MKMapViewDelegate {
     
     // get all the countries in Swift
     //let countries : [ String ] = Locale.isoRegionCodes.compactMap { Locale.current.localizedString(forRegionCode: $0) }
@@ -29,7 +29,7 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
      */
     
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var searchBar: UISearchBar!
+    //@IBOutlet weak var searchBar: UISearchBar!
 
     
     private var boundingRegion: MKCoordinateRegion = MKCoordinateRegion(MKMapRect.world)
@@ -43,7 +43,7 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
         mapView.addOverlay(tileOverlay as! MKOverlay, level: .aboveRoads)
         
         mapView.delegate = self
-        searchBar.delegate = self
+        //searchBar.delegate = self
         self.displayHome()
         self.fetchTripsFromUser()
         super.viewDidLoad()
@@ -90,25 +90,25 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
     
     
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-    }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchBar.setShowsCancelButton(true, animated: true)
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchBar.setShowsCancelButton(false, animated: true)
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        dismiss(animated: true, completion: nil)
-        let searchRequest = MKLocalSearch.Request()
-        searchRequest.naturalLanguageQuery = searchBar.text
-        search(using: searchRequest, cat:3)
-    }
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        searchBar.resignFirstResponder()
+//    }
+//
+//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+//        searchBar.setShowsCancelButton(true, animated: true)
+//    }
+//
+//    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+//        searchBar.setShowsCancelButton(false, animated: true)
+//    }
+//
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        searchBar.resignFirstResponder()
+//        dismiss(animated: true, completion: nil)
+//        let searchRequest = MKLocalSearch.Request()
+//        searchRequest.naturalLanguageQuery = searchBar.text
+//        search(using: searchRequest, cat:3)
+//    }
     
     private func search(using searchRequest: MKLocalSearch.Request, cat: Int) {
         let search = MKLocalSearch(request: searchRequest)
