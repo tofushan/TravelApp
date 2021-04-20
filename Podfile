@@ -6,6 +6,7 @@ target 'the-best-world-traveler' do
   use_frameworks!
     
   # Pods for the-best-world-traveler
+  pod 'GoogleMapsTileOverlay', '~> 0.4.1'
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'

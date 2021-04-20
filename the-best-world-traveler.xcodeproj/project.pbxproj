@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -34,7 +34,34 @@
 		8BF98DF1260F8EF00067F5C3 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF98DF0260F8EF00067F5C3 /* SignupVC.swift */; };
 		EF38A39E262CAD72004EA8ED /* friendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF38A39D262CAD72004EA8ED /* friendsTableViewController.swift */; };
 		EF38A3A1262CB30B004EA8ED /* friendsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF38A3A0262CB30B004EA8ED /* friendsMapViewController.swift */; };
+		EFE4135B262F720300454D19 /* GoogleMapsTileOverlay in Frameworks */ = {isa = PBXBuildFile; productRef = EFE4135A262F720300454D19 /* GoogleMapsTileOverlay */; };
+		EFE4135E262F72A100454D19 /* GoogleMapsTileOverlay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFE4135D262F72A100454D19 /* GoogleMapsTileOverlay.xcframework */; };
+		EFE4135F262F72A100454D19 /* GoogleMapsTileOverlay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EFE4135D262F72A100454D19 /* GoogleMapsTileOverlay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EFE413B7262F788000454D19 /* DarkRedBlue.json in Resources */ = {isa = PBXBuildFile; fileRef = EFE413B6262F788000454D19 /* DarkRedBlue.json */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EFE41360262F72A100454D19 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EFE4135F262F72A100454D19 /* GoogleMapsTileOverlay.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFE41399262F74D600454D19 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1400CB902613B998008AE8B0 /* tabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabBarViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +95,8 @@
 		BB9F6DB7A3D4224A1DC66CB8 /* Pods-the-best-world-traveler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-the-best-world-traveler.release.xcconfig"; path = "Target Support Files/Pods-the-best-world-traveler/Pods-the-best-world-traveler.release.xcconfig"; sourceTree = "<group>"; };
 		EF38A39D262CAD72004EA8ED /* friendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friendsTableViewController.swift; sourceTree = "<group>"; };
 		EF38A3A0262CB30B004EA8ED /* friendsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friendsMapViewController.swift; sourceTree = "<group>"; };
+		EFE4135D262F72A100454D19 /* GoogleMapsTileOverlay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMapsTileOverlay.xcframework; path = Carthage/Build/GoogleMapsTileOverlay.xcframework; sourceTree = "<group>"; };
+		EFE413B6262F788000454D19 /* DarkRedBlue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DarkRedBlue.json; path = MapStyle/DarkRedBlue.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +105,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CDA5607FCF3EDF6FE6C7A43 /* Pods_the_best_world_traveler.framework in Frameworks */,
+				EFE4135B262F720300454D19 /* GoogleMapsTileOverlay in Frameworks */,
+				EFE4135E262F72A100454D19 /* GoogleMapsTileOverlay.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +153,7 @@
 				8BCF93732626734C00016031 /* MyTripsTableViewController.swift */,
 				1E9DCEBD262275660047F7AA /* myAccountViewController.swift */,
 				1E9DCE61261CDFE30047F7AA /* settingsCustomTableViewCell.swift */,
+				EFE413B6262F788000454D19 /* DarkRedBlue.json */,
 				1E9DCE5E261CDBFF0047F7AA /* settingsTableViewController.swift */,
 				8BBA60F2261904BF00FB30FB /* CountriesTableVCTableViewController.swift */,
 				8BF98DF0260F8EF00067F5C3 /* SignupVC.swift */,
@@ -146,6 +178,7 @@
 		CE424E595BE8AC4B5DBB57D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EFE4135D262F72A100454D19 /* GoogleMapsTileOverlay.xcframework */,
 				1E53FC854E7A5AF85C6C73D2 /* Pods_the_best_world_traveler.framework */,
 			);
 			name = Frameworks;
@@ -163,12 +196,17 @@
 				8BD84D16260D2DB4002EBBFE /* Frameworks */,
 				8BD84D17260D2DB4002EBBFE /* Resources */,
 				E33B5C5598988BD6034AD8C4 /* [CP] Embed Pods Frameworks */,
+				EFE41360262F72A100454D19 /* Embed Frameworks */,
+				EFE41399262F74D600454D19 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "the-best-world-traveler";
+			packageProductDependencies = (
+				EFE4135A262F720300454D19 /* GoogleMapsTileOverlay */,
+			);
 			productName = "the-best-world-traveler";
 			productReference = 8BD84D48260D30B6002EBBFE /* the-best-world-traveler.app */;
 			productType = "com.apple.product-type.application";
@@ -196,6 +234,9 @@
 				Base,
 			);
 			mainGroup = 8BD84D10260D2DB4002EBBFE;
+			packageReferences = (
+				EFE41359262F720300454D19 /* XCRemoteSwiftPackageReference "GoogleMapsTileOverlay" */,
+			);
 			productRefGroup = 8BD84D10260D2DB4002EBBFE;
 			projectDirPath = "";
 			projectRoot = "";
@@ -211,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BD84D2C260D2DB6002EBBFE /* LaunchScreen.storyboard in Resources */,
+				EFE413B7262F788000454D19 /* DarkRedBlue.json in Resources */,
 				8BD84D4A260D30D2002EBBFE /* GoogleService-Info.plist in Resources */,
 				8BD84D29260D2DB6002EBBFE /* Assets.xcassets in Resources */,
 				8BD84D24260D2DB5002EBBFE /* Main.storyboard in Resources */,
@@ -244,7 +286,7 @@
 		};
 		E33B5C5598988BD6034AD8C4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -252,7 +294,6 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-the-best-world-traveler/Pods-the-best-world-traveler-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -489,6 +530,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EFE41359262F720300454D19 /* XCRemoteSwiftPackageReference "GoogleMapsTileOverlay" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/thepeaklab/GoogleMapsTileOverlay";
+			requirement = {
+				kind = exactVersion;
+				version = 0.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EFE4135A262F720300454D19 /* GoogleMapsTileOverlay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFE41359262F720300454D19 /* XCRemoteSwiftPackageReference "GoogleMapsTileOverlay" */;
+			productName = GoogleMapsTileOverlay;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		8BD84D25260D2DB5002EBBFE /* the_best_world_traveler.xcdatamodeld */ = {

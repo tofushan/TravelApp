@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 import FirebaseAuth
 import Firebase
-
+import GoogleMapsTileOverlay
 
 
 
@@ -36,6 +36,12 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
     
     override func viewDidLoad() {
         print("map view did load!")
+        guard let jsonURL = Bundle.main.url(forResource: "DarkRedBlue", withExtension: "json") else { return }
+
+        let tileOverlay = try? GoogleMapsTileOverlay(jsonURL: jsonURL)
+        tileOverlay!.canReplaceMapContent = true
+        mapView.addOverlay(tileOverlay as! MKOverlay, level: .aboveRoads)
+        
         mapView.delegate = self
         searchBar.delegate = self
         self.displayHome()
@@ -148,6 +154,9 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if let tileOverlay = overlay as? MKTileOverlay {
+            return MKTileOverlayRenderer(tileOverlay: tileOverlay)
+        }
         // Generate renderer.
         let myPolyLineRendere: MKPolylineRenderer = MKPolylineRenderer(overlay: overlay)
         
@@ -159,7 +168,7 @@ class mapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegat
         let greenValue = CGFloat.random(in: 0...1)
         let blueValue = CGFloat.random(in: 0...1)
         myPolyLineRendere.strokeColor = UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: 0.7)
-                
+        
         return myPolyLineRendere
     }
     

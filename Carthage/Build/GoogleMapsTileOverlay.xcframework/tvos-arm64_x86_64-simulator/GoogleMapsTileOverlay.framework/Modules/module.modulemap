@@ -1,0 +1,4 @@
+framework module GoogleMapsTileOverlay {
+  header "GoogleMapsTileOverlay-Swift.h"
+  requires objc
+}

@@ -1,0 +1,47 @@
+{
+  "Mac" : [
+    {
+      "swiftToolchainVersion" : "5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)",
+      "hash" : "ff4c5f331a1db9e75c4fc2806d5f8c980f215f13a778e0d25435f38be292a117",
+      "name" : "GoogleMapsTileOverlay",
+      "container" : "GoogleMapsTileOverlay.xcframework",
+      "identifier" : "macos-arm64_x86_64"
+    }
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+    {
+      "swiftToolchainVersion" : "5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)",
+      "hash" : "f6b3de9ce3838deed44d1f2215e884ee4d70ee34cfdf93ba295606ea1908d08f",
+      "name" : "GoogleMapsTileOverlay",
+      "container" : "GoogleMapsTileOverlay.xcframework",
+      "identifier" : "tvos-arm64_x86_64-simulator"
+    },
+    {
+      "swiftToolchainVersion" : "5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)",
+      "hash" : "4aab0f9943cde793047d814ef61721e3d386734be8f1533f43d2e96628e9993e",
+      "name" : "GoogleMapsTileOverlay",
+      "container" : "GoogleMapsTileOverlay.xcframework",
+      "identifier" : "tvos-arm64"
+    }
+  ],
+  "commitish" : "0.4.1",
+  "iOS" : [
+    {
+      "swiftToolchainVersion" : "5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)",
+      "hash" : "e0ef30da171b5f6e671ee9c13e73bcae4cba43ab95a8f5be811d2ad749ce0c86",
+      "name" : "GoogleMapsTileOverlay",
+      "container" : "GoogleMapsTileOverlay.xcframework",
+      "identifier" : "ios-arm64_armv7"
+    },
+    {
+      "swiftToolchainVersion" : "5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)",
+      "hash" : "4774e3015def87b52162b45a6895df3ca08e905fc95c1d6f62c174b9a4c92c97",
+      "name" : "GoogleMapsTileOverlay",
+      "container" : "GoogleMapsTileOverlay.xcframework",
+      "identifier" : "ios-arm64_i386_x86_64-simulator"
+    }
+  ]
+}
