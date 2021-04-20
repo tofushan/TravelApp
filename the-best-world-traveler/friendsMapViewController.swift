@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import GoogleMapsTileOverlay
 
 class friendsMapViewController: UIViewController, MKMapViewDelegate {
 
@@ -22,6 +23,12 @@ class friendsMapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let jsonURL = Bundle.main.url(forResource: "DarkRedBlue", withExtension: "json") else { return }
+
+        let tileOverlay = try? GoogleMapsTileOverlay(jsonURL: jsonURL)
+        tileOverlay!.canReplaceMapContent = true
+        mapView.addOverlay(tileOverlay as! MKOverlay, level: .aboveRoads)
+        
         mapView.delegate = self
         self.displayAnnotations()
         // Do any additional setup after loading the view.
@@ -145,7 +152,14 @@ class friendsMapViewController: UIViewController, MKMapViewDelegate {
             search(using: searchRequest, cat:1)
         }
     }
-
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if let tileOverlay = overlay as? MKTileOverlay {
+            return MKTileOverlayRenderer(tileOverlay: tileOverlay)
+        }
+        
+        return MKOverlayRenderer(overlay: overlay)
+    }
     /*
     // MARK: - Navigation
 
