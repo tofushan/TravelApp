@@ -25,7 +25,8 @@ class friendsTableViewController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
 
         searchBar.delegate = self
-        
+        searchBar.autocapitalizationType = .none
+        searchBar.searchTextField.placeholder = NSLocalizedString("Enter friend's email here", comment: "")
         // get all the user data from the database
         // and add their email to filteredData
         let collection = db.collection("users")
