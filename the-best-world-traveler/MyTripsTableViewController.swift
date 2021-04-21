@@ -194,6 +194,7 @@ class MyTripsTableViewController: UITableViewController {
         destVC.tempDate = countries[countriesList[selectRow!]]![0]
         destVC.tempCities = countries[countriesList[selectRow!]]![1]
         destVC.tempNotes = countries[countriesList[selectRow!]]![2]
+        destVC.tempCountry = countriesList[selectRow!]
         
     }
     
