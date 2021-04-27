@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  CS207
+
+  Created by Hugh Thomas on 3/12/21.
+  
+*/
+"NAME" = "Name";
+"AGE" = "Age";
+"COUNTRY" = "Country";

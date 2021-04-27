@@ -1,0 +1,13 @@
+platform :ios, '9.0'
+
+target 'CS207' do
+  use_frameworks!
+
+  pod 'MBProgressHUD', '~> 1.0'
+ 
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
+
+end
